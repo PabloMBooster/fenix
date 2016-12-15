@@ -1,17 +1,15 @@
 # PORCENTAS ---------------------------------------------------------------
 
-DownloadPorcenta <- function(inicio, fin, ...){
-  
+#dirUrl = "http://www.imarpe.pe/imarpe/archivos/reportes/imarpe_rpelag_porfinal"
+DownloadPorcenta <- function(directorio, dirUrl, inicio, fin, ...){
   tiempo <- seq(as.Date(inicio), as.Date(fin), by = "day")
   tiempo2 <- strftime(tiempo,format="%d%m%Y")  
-  
   for (i in 1:length(tiempo2))
   {
-    url <- paste("http://www.imarpe.pe/imarpe/archivos/reportes/imarpe_rpelag_porfinal",tiempo2[i],".xlsx",sep="")
-    destfile <- paste(directory.por,"imarpe_rpelag_porfinal",tiempo2[i],".xlsx",sep="")   
+    url <- paste0(dirUrl, tiempo2[i], ".xlsx")
+    destfile <- paste0(directorio,"imarpe_rpelag_porfinal",tiempo2[i],".xlsx")   
     try(download.file(url,destfile,method="internal",mode="wb"))
-  }
-  
+  }  
 }
 
 ReadPorcenta <- function(directorio, inicio, fin,...){
