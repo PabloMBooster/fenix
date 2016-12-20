@@ -37,7 +37,7 @@ area.pesca <- function(dc,lat,grado) {
       nombreAREA <- rbind(nombreAREA,NombreArea)
     } 
   dimnames(nombreAREA) <- NULL
-  nombreAREA <- as.numeric(nombreAREA
+  nombreAREA <- as.numeric(nombreAREA)
   return(nombreAREA)
 }
 
