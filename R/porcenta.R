@@ -28,18 +28,26 @@ ReadPorcenta <- function(directorio, inicio, fin,...){
   for(i in 1:length(tiempo2))
   {
     file_name <- paste(directorio,paste("imarpe_rpelag_porfinal",tiempo2[i],".xlsx",sep=""),sep="")
+    wb <- NULL
     wb <- tryCatch({
       loadWorkbook(file_name)        
     }, error=function(e) {
       message("Not Found",file_name)
       return(wb)
     })
-    
-    desemb  <- readWorksheet(wb, sheet="reporte",startRow = 11, startCol = 3,endRow = 12, endCol = 40) 
-    n.embar <- readWorksheet(wb, sheet="reporte",startRow = 12, startCol = 3, endRow = 13, endCol = 40) 
-    e.muest <- readWorksheet(wb, sheet="reporte",startRow = 13, startCol = 3, endRow = 14, endCol = 40) 
-    p.juv   <- readWorksheet(wb, sheet="reporte",startRow = 14, startCol = 3, endRow = 15, endCol = 40) 
-    mod     <- readWorksheet(wb, sheet="reporte",startRow = 15, startCol = 3, endRow = 16, endCol = 40)  
+    if(!is.null(wb)){
+      desemb  <- readWorksheet(wb, sheet="reporte",startRow = 11, startCol = 3,endRow = 12, endCol = 40) 
+      n.embar <- readWorksheet(wb, sheet="reporte",startRow = 12, startCol = 3, endRow = 13, endCol = 40) 
+      e.muest <- readWorksheet(wb, sheet="reporte",startRow = 13, startCol = 3, endRow = 14, endCol = 40) 
+      p.juv   <- readWorksheet(wb, sheet="reporte",startRow = 14, startCol = 3, endRow = 15, endCol = 40) 
+      mod     <- readWorksheet(wb, sheet="reporte",startRow = 15, startCol = 3, endRow = 16, endCol = 40)  
+    }else{
+      desemb  <- rep(NA, 38)
+      n.embar <- rep(NA, 38)
+      e.muest <- rep(NA, 38)
+      p.juv   <- rep(NA, 38)
+      mod     <- rep(NA, 38)
+      }
     
     porcenta = print(tiempo2[i])
     list.porcenta = rbind(list.porcenta, porcenta)
