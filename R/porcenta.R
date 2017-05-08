@@ -167,6 +167,40 @@ DoMonthCatch <- function(data) {
 }
 
 
+porcentaPuertoRegion <- function(data){
+  
+  out = list()
+  # NORTE - CENTRO
+  data.nc = data.frame(cbind(apply(data[,2:5],1,sum),
+                             apply(data[,6:7],1,sum),
+                             apply(data[,8:13],1,sum),
+                             apply(data[,14:23],1,sum),
+                             apply(data[,24:25],1,sum),
+                             apply(data[,26:29],1,sum)))
+  
+  names(data.nc) = c("paita", "chicama", "chimbote", "huacho", "callao", "pisco")                                  
+  data.nc$fecha  = data$Fecha
+  data.nc$dia    = as.numeric(substring(data.nc$fecha,9,10))
+  data.nc$mes    = as.numeric(substring(data.nc$fecha,6,7))
+  data.nc$md     = paste(data.nc$mes, "-",data.nc$dia, sep = "")
+  
+  # SUR
+  data.sur = data.frame(cbind(apply(data[,30:31],1,sum),
+                              apply(data[,32:33],1,sum),
+                              apply(data[,36:37],1,sum),
+                              apply(data[,38:39],1,sum)))
+  
+  names(data.sur) = c("atico", "planchada", "mollendo", "ilo")                                  
+  data.sur$fecha  = data$Fecha
+  data.sur$dia    = as.numeric(substring(data.sur$fecha,9,10))
+  data.sur$mes    = as.numeric(substring(data.sur$fecha,6,7))
+  data.sur$md     = paste(data.sur$mes, "-",data.sur$dia, sep = "")
+  
+  out$data.nc  = data.nc
+  out$data.sur = data.sur
+  
+  return(out)
+}
 
 
 
