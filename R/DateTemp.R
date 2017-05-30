@@ -19,7 +19,5 @@ DateTemp = function(x){
   return(id.temp) 
 }
 
-
-
-# tmpAnchNC <- read.csv("F:/Datos Bitacoras/tmpAnchNC.csv", sep = ";")
-# save(tmpAnchNC, file = "F:/github/fenix/data/tmpAnchNC.RData")
+tmpAnchNC <- read.csv("tmpAnchNC.csv")
+save(tmpAnchNC, file = "F:/github/fenix/data/tmpAnchNC.RData")
