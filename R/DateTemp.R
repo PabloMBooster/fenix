@@ -19,5 +19,5 @@ DateTemp = function(x){
   return(id.temp) 
 }
 
-tmpAnchNC <- read.csv("tmpAnchNC.csv")
-save(tmpAnchNC, file = "F:/github/fenix/data/tmpAnchNC.RData")
+#tmpAnchNC <- read.csv("tmpAnchNC.csv")
+#save(tmpAnchNC, file = "F:/github/fenix/data/tmpAnchNC.RData")
