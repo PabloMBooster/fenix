@@ -1,7 +1,7 @@
 # https://pakillo.github.io/R-GIS-tutorial/
 # mapas -------------------------------------------------------------------
 mapa.peru <- function(xlim=c(-84,-70), ylim=c(-21, -3), labelsxy = TRUE, axis4L = FALSE, perfil = FALSE,
-                      land.col="khaki1", sea.col="white", cex.Port = 0.65){
+                      land.col="khaki1", sea.col="white", cex.Port = 0.65, add = add, ...){
   
   require(kali)
   
@@ -14,7 +14,7 @@ mapa.peru <- function(xlim=c(-84,-70), ylim=c(-21, -3), labelsxy = TRUE, axis4L 
   plot.map(axes = F,col="red", cex=1, xlim=xlim, hires = TRUE, ylab = NULL, xlab = NULL, xaxs = "i", yaxs = "i", 
            ylim=ylim, land.col=land.col, sea.col=sea.col, 
            boundaries.col = NA, grid.col = "blue",main="", 
-           grid = FALSE)
+           grid = FALSE, add = add)
   lines(linePeru$lon, linePeru$lat, col="gray40")
   
   if(isTRUE(labelsxy)){
@@ -42,7 +42,7 @@ mapa.peru <- function(xlim=c(-84,-70), ylim=c(-21, -3), labelsxy = TRUE, axis4L 
 }
 
 mapa.peru.simple <- function(xlim=c(-84,-70), ylim=c(-21, -3), labelsxy = TRUE, axis4L = FALSE, perfil = FALSE,
-                             col="khaki1", border = "khaki1", sea.col="white", cex.Port = 0.65){
+                             col="khaki1", border = "khaki1", sea.col="white", cex.Port = 0.65, add = add){
   
   require(maps)
   require(mapdata)
@@ -54,7 +54,7 @@ mapa.peru.simple <- function(xlim=c(-84,-70), ylim=c(-21, -3), labelsxy = TRUE, 
   Encoding(axis.Lat) <- "UTF-8"
   
   map("worldHires",fill=T, myborder = FALSE, col = col, border = border,
-      xlim = xlim, ylim = ylim)
+      xlim = xlim, ylim = ylim, add = add)
   
   lines(linePeru$lon, linePeru$lat, col="gray40")
   
