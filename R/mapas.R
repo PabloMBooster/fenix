@@ -1,7 +1,7 @@
 # https://pakillo.github.io/R-GIS-tutorial/
 # mapas -------------------------------------------------------------------
 mapa.peru <- function(xlim=c(-84,-70), ylim=c(-21, -3), labelsxy = TRUE, axis4L = FALSE, perfil = FALSE,
-                      land.col="khaki1", sea.col="white", cex.Port = 0.65, add = add, ...){
+                      land.col="khaki1", sea.col="white", cex.Port = 0.65, add = FALSE, ...){
   
   require(kali)
   
@@ -42,7 +42,7 @@ mapa.peru <- function(xlim=c(-84,-70), ylim=c(-21, -3), labelsxy = TRUE, axis4L 
 }
 
 mapa.peru.simple <- function(xlim=c(-84,-70), ylim=c(-21, -3), labelsxy = TRUE, axis4L = FALSE, perfil = FALSE,
-                             col="khaki1", border = "khaki1", sea.col="white", cex.Port = 0.65, add = add){
+                             col="khaki1", border = "khaki1", sea.col="white", cex.Port = 0.65, add = FALSE){
   
   require(maps)
   require(mapdata)
