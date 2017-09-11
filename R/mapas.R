@@ -38,7 +38,7 @@ mapa.peru <- function(xlim=c(-84,-70), ylim=c(-21, -3), labelsxy = TRUE, axis4L 
   axis(4,seq(ylim[1],ylim[2],by = 2), axis.Lat, las=1, cex.axis=0.6, hadj=0.5, tck=-0.010)
   }
   
-  return(invisible)
+  #return(invisible)
 }
 
 mapa.peru.simple <- function(xlim=c(-84,-70), ylim=c(-21, -3), labelsxy = TRUE, axis4L = FALSE, perfil = FALSE,
@@ -79,5 +79,5 @@ mapa.peru.simple <- function(xlim=c(-84,-70), ylim=c(-21, -3), labelsxy = TRUE, 
     axis(4,seq(ylim[1],ylim[2],by = 2), axis.Lat, las=1, cex.axis=0.6, hadj=0.5, tck=-0.010)
   }
   box()
-  return(invisible)
+  #return(invisible)
 }
