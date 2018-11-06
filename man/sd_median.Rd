@@ -1,26 +1,23 @@
-\name{puntos_tierra}
-\alias{puntos_tierra}
+\name{sd_median}
+\alias{sd_median}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-points on land
+desviation of median
 }
 \description{
-identify the positions in land
+%%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
-puntos_tierra(x, y)
+sd_median(x)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{x}{
-  longitude}
-  \item{y}{
-  latitude
-
+%%     ~~Describe \code{x} here~~
 }
 }
 \details{
-if \code{puntos_tierra} return NA you need to check the longitude or latitude.
+%%  ~~ If necessary, more details than the description above ~~
 }
 \value{
 %%  ~Describe the value returned
@@ -30,7 +27,7 @@ if \code{puntos_tierra} return NA you need to check the longitude or latitude.
 %% ...
 }
 \references{
-%% ~put references to the literature/web site here ~ 
+%% ~put references to the literature/web site here ~
 }
 \author{
 %%  ~~who you are~~
@@ -45,14 +42,14 @@ if \code{puntos_tierra} return NA you need to check the longitude or latitude.
 %% ~~objects to See Also as \code{\link{help}}, ~~~
 }
 \examples{
-head(dataLand)
-dataLand$pLand <- puntos_tierra(x = dataLand$Longitud, y = dataLand$Latitud)
+##---- Should be DIRECTLY executable !! ----
+##-- ==>  Define data, use random,
+##--	or do  help(data=index)  for the standard data sets.
 
-mapa.peru()
-points(dataLand$Longitud, dataLand$Latitud, pch = 16, col = 2)
-points(dataLand$Longitud[dataLand$pLand < 0], dataLand$Latitud[dataLand$pLand < 0], col = 4, pch = 16)
-legend("toprigh", legend = c("sea", "land"), pch = 16, col = c(2, 4), bty = "n")
-
+## The function is currently defined as
+function (x) 
+{
+  }
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.

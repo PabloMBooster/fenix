@@ -1,26 +1,33 @@
-\name{puntos_tierra}
-\alias{puntos_tierra}
+\name{estima_dist}
+\alias{estima_dist}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-points on land
+Distance 
 }
 \description{
-identify the positions in land
+Estimate minimun distance. The distance contemplates the curvature of the earth and it is expressed in nautical miles
 }
 \usage{
-puntos_tierra(x, y)
+estima_dist(x, y, x1, y1)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{x}{
-  longitude}
+longitude of the observation
+}
   \item{y}{
-  latitude
-
+latitude of the observation
+}
+  \item{x1}{
+longitude of the place
+}
+  \item{y1}{
+latitude of the place
 }
 }
 \details{
-if \code{puntos_tierra} return NA you need to check the longitude or latitude.
+longitude and latitude of the place for example: coast line, 
+island, shelf break etc.
 }
 \value{
 %%  ~Describe the value returned
@@ -30,7 +37,7 @@ if \code{puntos_tierra} return NA you need to check the longitude or latitude.
 %% ...
 }
 \references{
-%% ~put references to the literature/web site here ~ 
+%% ~put references to the literature/web site here ~
 }
 \author{
 %%  ~~who you are~~
@@ -45,13 +52,12 @@ if \code{puntos_tierra} return NA you need to check the longitude or latitude.
 %% ~~objects to See Also as \code{\link{help}}, ~~~
 }
 \examples{
-head(dataLand)
-dataLand$pLand <- puntos_tierra(x = dataLand$Longitud, y = dataLand$Latitud)
 
-mapa.peru()
-points(dataLand$Longitud, dataLand$Latitud, pch = 16, col = 2)
-points(dataLand$Longitud[dataLand$pLand < 0], dataLand$Latitud[dataLand$pLand < 0], col = 4, pch = 16)
-legend("toprigh", legend = c("sea", "land"), pch = 16, col = c(2, 4), bty = "n")
+head(dataLand)
+dataLand$dist <- estima_dist(x = dataLand$Longitude, y = dataLand$Latitude, x1 = shelfbreak$lon, y1 = shelfbreak)
+
+
+$lat)
 
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
