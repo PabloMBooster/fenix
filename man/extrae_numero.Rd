@@ -1,33 +1,23 @@
-\name{estima_dist}
-\alias{estima_dist}
+\name{extrae_numero}
+\alias{extrae_numero}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-Distance 
+Extract number
 }
 \description{
-Estimate minimun distance. The distance contemplates the curvature of the earth and it is expressed in nautical miles
+extract number 
 }
 \usage{
-estima_dist(x, y, x1, y1)
+extrae_numero(x)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{x}{
-longitude of the observation
-}
-  \item{y}{
-latitude of the observation
-}
-  \item{x1}{
-longitude of the place
-}
-  \item{y1}{
-latitude of the place
+is a codigo with letters and numbers
 }
 }
 \details{
-longitude and latitude of the place for example: coast line, 
-island, shelf break etc.
+%%  ~~ If necessary, more details than the description above ~~
 }
 \value{
 %%  ~Describe the value returned
@@ -52,12 +42,8 @@ Pablo Marin
 %% ~~objects to See Also as \code{\link{help}}, ~~~
 }
 \examples{
-
-head(dataLand)
-dataLand$dist <- estima_dist(x = dataLand$Longitude, y = dataLand$Latitude, x1 = shelfbreak$lon, y1 = shelfbreak)
-
-
-$lat)
+codigo <- "CH-8790-PL"
+extrae_numero(codigo)
 
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
