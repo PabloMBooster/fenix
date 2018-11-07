@@ -1,18 +1,23 @@
-\name{mapa_peru}
-\alias{mapa_peru}
+\name{mapa_peru2}
+\alias{mapa_peru2}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-Map of Peru}
+Map of Peru
+}
 \description{
 generate a base map from Peru
 }
 \usage{
-mapa_peru()
+mapa_peru2(x)
 }
 %- maybe also 'usage' for other objects documented here.
-
+\arguments{
+  \item{x}{
+%%     ~~Describe \code{x} here~~
+}
+}
 \details{
-using \code{kali package} and generate a base map from Peru. You need to install \code{kali package} from https://github.com/roliveros-ramos
+using \code{maps and mapdata package} and generate a base map from Peru. 
 }
 \value{
 %%  ~Describe the value returned
@@ -37,7 +42,7 @@ using \code{kali package} and generate a base map from Peru. You need to install
 %% ~~objects to See Also as \code{\link{help}}, ~~~
 }
 \examples{
-mapa_peru()
+mapa_peru2()
 points(dataLand$lon, dataLand$lat)
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
