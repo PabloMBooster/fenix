@@ -1,26 +1,22 @@
-\name{area_isoparalitoral}
-\alias{area_isoparalitoral}
+\name{trim}
+\alias{trim}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-Area isoparalitoral
-}
+Remove whitespace}
 \description{
-knowing the latitude and distance to coast of any point identifies its corresponding isoparalitoral area
+Remove whitespace at the ends of a character
 }
 \usage{
-area_isoparalitoral(dc, lat)
+trim(x)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{dc}{
-distance to coast
-}
-  \item{lat}{
-latitude
+  \item{x}{
+character
 }
 }
 \details{
-the function return distance to coast, latitude and area
+%%  ~~ If necessary, more details than the description above ~~
 }
 \value{
 %%  ~Describe the value returned
@@ -45,15 +41,9 @@ Pablo Marin
 %% ~~objects to See Also as \code{\link{help}}, ~~~
 }
 \examples{
-lon <- c(-71.25, -72.01)
-lat <- c(-17.83, -17.14)
+obs <- " casa de palo   "
+obs <- trim(obs)
 
-data_area <- data.frame(lon = lon, lat = lat)
-data_area$dc <- estima_dc(lon = lon, lat = lat)
-area <- area_isoparalitoral(dc = data_area$dc, lat = data_area$lat)
-head(area)
-
-data_area$area <- area$area
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.

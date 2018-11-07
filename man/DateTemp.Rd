@@ -1,26 +1,23 @@
-\name{area_isoparalitoral}
-\alias{area_isoparalitoral}
+\name{DateTemp}
+\alias{DateTemp}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-Area isoparalitoral
+Seasons of the North-Center Stock of the Peruvian anchovy
 }
 \description{
-knowing the latitude and distance to coast of any point identifies its corresponding isoparalitoral area
+Determine the days corresponding to each seasons fishing
 }
 \usage{
-area_isoparalitoral(dc, lat)
+DateTemp(x)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{dc}{
-distance to coast
-}
-  \item{lat}{
-latitude
+  \item{x}{
+date
 }
 }
 \details{
-the function return distance to coast, latitude and area
+%%  ~~ If necessary, more details than the description above ~~
 }
 \value{
 %%  ~Describe the value returned
@@ -33,7 +30,7 @@ the function return distance to coast, latitude and area
 %% ~put references to the literature/web site here ~
 }
 \author{
-Pablo Marin
+%%  ~~who you are~~
 }
 \note{
 %%  ~~further notes~~
@@ -45,15 +42,12 @@ Pablo Marin
 %% ~~objects to See Also as \code{\link{help}}, ~~~
 }
 \examples{
-lon <- c(-71.25, -72.01)
-lat <- c(-17.83, -17.14)
 
-data_area <- data.frame(lon = lon, lat = lat)
-data_area$dc <- estima_dc(lon = lon, lat = lat)
-area <- area_isoparalitoral(dc = data_area$dc, lat = data_area$lat)
-head(area)
+dates <- c("25/04/2017", "26/04/2017", "27/04/2017", "28/04/2017")
+dates <- as.Date(dates, "\%d/\%m/\%Y")
+DateTemp(dates)
 
-data_area$area <- area$area
+
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.

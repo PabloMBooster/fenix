@@ -1,7 +1,5 @@
-
-# tmpAnchNCS --------------------------------------------------------------
 DateTemp = function(x){
-  #require(fenix)
+  
   tmpAnchNC$temp_1_i <- as.Date(as.character(tmpAnchNC$temp_1_i), format ="%d/%m/%Y") 
   tmpAnchNC$temp_1_f <- as.Date(as.character(tmpAnchNC$temp_1_f), format ="%d/%m/%Y") 
   tmpAnchNC$temp_2_i <- as.Date(as.character(tmpAnchNC$temp_2_i), format ="%d/%m/%Y") 
@@ -19,5 +17,3 @@ DateTemp = function(x){
   return(id.temp) 
 }
 
-#tmpAnchNC <- read.csv("tmpAnchNC.csv")
-#save(tmpAnchNC, file = "F:/github/fenix/data/tmpAnchNC.RData")
