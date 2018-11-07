@@ -1,12 +1,7 @@
-# https://pakillo.github.io/R-GIS-tutorial/
-# mapas -------------------------------------------------------------------
-
-
-mapa.peru.simple <- function(xlim=c(-84,-70), ylim=c(-21, -3), labelsxy = TRUE, axis4L = FALSE, perfil = FALSE,
-                             col="khaki1", border = "khaki1", sea.col="white", cex.Port = 0.65, add = FALSE){
+mapa_peru <- function(xlim=c(-84,-70), ylim=c(-21, -3), labelsxy = TRUE, axis4L = FALSE, perfil = FALSE,
+                      land.col="khaki1", sea.col="white", cex.Port = 0.65, add = FALSE, ...){
   
-  require(maps)
-  require(mapdata)
+  require(kali)
   
   axis.Lon <- paste(abs(seq(xlim[1],xlim[2],by = 2)),"°W")
   axis.Lat <- paste(abs(seq(ylim[1],ylim[2],by = 2)),"°S")
@@ -14,9 +9,10 @@ mapa.peru.simple <- function(xlim=c(-84,-70), ylim=c(-21, -3), labelsxy = TRUE, 
   Encoding(axis.Lon) <- "UTF-8"
   Encoding(axis.Lat) <- "UTF-8"
   
-  map("worldHires",fill=T, myborder = FALSE, col = col, border = border,
-      xlim = xlim, ylim = ylim, add = add)
-  
+  plot.map(axes = F,col="red", cex=1, xlim=xlim, hires = TRUE, ylab = NULL, xlab = NULL, xaxs = "i", yaxs = "i", 
+           ylim=ylim, land.col=land.col, sea.col=sea.col, 
+           boundaries.col = NA, grid.col = "blue",main="", 
+           grid = FALSE, add = add)
   lines(linePeru$lon, linePeru$lat, col="gray40")
   
   if(isTRUE(labelsxy)){
@@ -39,6 +35,6 @@ mapa.peru.simple <- function(xlim=c(-84,-70), ylim=c(-21, -3), labelsxy = TRUE, 
     axis(3,seq(xlim[1],xlim[2],by = 2),labels = axis.Lon, cex.axis=0.6, line = -0.5, lwd = 0)
     axis(4,seq(ylim[1],ylim[2],by = 2), axis.Lat, las=1, cex.axis=0.6, hadj=0.5, tck=-0.010)
   }
-  box()
+  
   #return(invisible)
 }

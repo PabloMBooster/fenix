@@ -1,26 +1,18 @@
-\name{puntos_tierra}
-\alias{puntos_tierra}
+\name{mapa_peru}
+\alias{mapa_peru}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-points on land
-}
+Mapa of Peru}
 \description{
-identify the positions in land
+generate a base map from Peru
 }
 \usage{
-puntos_tierra(x, y)
+mapa_peru()
 }
 %- maybe also 'usage' for other objects documented here.
-\arguments{
-  \item{x}{
-  longitude}
-  \item{y}{
-  latitude
 
-}
-}
 \details{
-if \code{puntos_tierra} return NA you need to check the longitude or latitude.
+using \code{kali package} and generate a base map from Peru. you need install kali from https://github.com/roliveros-ramos
 }
 \value{
 %%  ~Describe the value returned
@@ -30,7 +22,7 @@ if \code{puntos_tierra} return NA you need to check the longitude or latitude.
 %% ...
 }
 \references{
-%% ~put references to the literature/web site here ~ 
+%% ~put references to the literature/web site here ~
 }
 \author{
 %%  ~~who you are~~
@@ -45,14 +37,8 @@ if \code{puntos_tierra} return NA you need to check the longitude or latitude.
 %% ~~objects to See Also as \code{\link{help}}, ~~~
 }
 \examples{
-head(dataLand)
-dataLand$pLand <- puntos_tierra(x = dataLand$Longitud, y = dataLand$Latitud)
-
 mapa_peru()
-points(dataLand$Longitud, dataLand$Latitud, pch = 16, col = 2)
-points(dataLand$Longitud[dataLand$pLand < 0], dataLand$Latitud[dataLand$pLand < 0], col = 4, pch = 16)
-legend("toprigh", legend = c("sea", "land"), pch = 16, col = c(2, 4), bty = "n")
-
+points(dataLand$lon, dataLand$lat)
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
