@@ -1,7 +1,8 @@
-area.pesca <- function(dc,lat,grado) {  
+covered_area <- function(dc,lat,grado) {  
+  
     grado <- grado
-    dc <- dc
-    lat <- lat
+    dc    <- dc
+    lat   <- lat
     
     intervalos <- (-18.5+3)/(-grado) 
     
@@ -20,7 +21,7 @@ area.pesca <- function(dc,lat,grado) {
     xy$num.area <- 1:dim(xy)[1]
   
     data <- data.frame(cbind(dc=dc,lat=lat))
-    nombreAREA <- NULL
+    name_area <- NULL
     
     for(j in 1:length(dc))
     {
@@ -32,13 +33,14 @@ area.pesca <- function(dc,lat,grado) {
       xy$diffx = abs(pos$dc - xy$x1 + pos$dc - xy$x2)
       xy$diffy = abs(pos$lat - xy$y1 + pos$lat - xy$y2)
       xy$diffxy = xy$diffy + xy$diffx
-      NombreArea <- xy[xy$diffxy==min(xy$diffxy),"num.area"]
+      id <- xy[xy$diffxy==min(xy$diffxy),"num.area"]
       
-      nombreAREA <- rbind(nombreAREA,NombreArea)
+      name_area <- rbind(name_area,id)
     } 
-  dimnames(nombreAREA) <- NULL
-  nombreAREA <- as.numeric(nombreAREA)
-  return(nombreAREA)
+  dimnames(name_area) <- NULL
+  name_area <- as.numeric(name_area)
+  area       <- length(unique(name_area))*60*grado*60*grado
+  return(area)
 }
 
 
