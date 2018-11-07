@@ -1,6 +1,6 @@
 mapa_peru <- function(xlim=c(-84,-70), ylim=c(-21, -3), labelsxy = TRUE, ylab = "Latitud", xlab = "Longitud", 
                       all_axis = FALSE, 
-                      land.col="khaki1", sea.col="white", cex_harbor = 0.65, add = FALSE, 
+                      land.col="khaki1", sea.col="white", names_harbor = TRUE, cex_harbor = 0.65, add = FALSE, 
                       n_perfil = 1, space_perfil = 3){
   
   require(kali)
@@ -37,8 +37,12 @@ mapa_peru <- function(xlim=c(-84,-70), ylim=c(-21, -3), labelsxy = TRUE, ylab = 
       mtext(ylab, side=2, line=1.5, cex=0.8)
     }
   }
-  principalP = puertosPeru[c(2,4,5,7,8,10,12,14,16,17,19),]
-  text(principalP$lon, principalP$lat, labels = principalP$puertos, cex=cex.Port, pos=4, font=1)
+  
+  if(isTRUE(names_harbor)){
+    principalP = puertosPeru[c(2,4,5,7,8,10,12,14,16,17,19),]
+    text(principalP$lon, principalP$lat, labels = principalP$puertos, cex=cex_harbor, pos=4, font=1)
+    
+  }
 
   axis(2,seq(ylim[1],ylim[2],by = 2), axis.Lat, las=1, cex.axis=0.6, hadj=0.5, tck=-0.010)
   
