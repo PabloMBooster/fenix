@@ -12,18 +12,17 @@ test_norm(x)
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{x}{
-%%     ~~Describe \code{x} here~~
+a numeric vector of data values
 }
 }
 \details{
 %%  ~~ If necessary, more details than the description above ~~
 }
 \value{
-%%  ~Describe the value returned
-%%  If it is a LIST, use
-%%  \item{comp1 }{Description of 'comp1'}
-%%  \item{comp2 }{Description of 'comp2'}
-%% ...
+ \item{p.value}{
+the p-value for the test.
+}
+
 }
 \references{
 %% ~put references to the literature/web site here ~
@@ -41,7 +40,7 @@ Pablo Marin
 %% ~~objects to See Also as \code{\link{help}}, ~~~
 }
 \examples{
-x <- rnorm(100, 20, 40)
+x <- rnorm(200, 20, 40)
 out <- test_norm(x)
 
 }
