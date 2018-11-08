@@ -1,13 +1,19 @@
-Bhattacharya = function(x, nModes){
-  require(mixtools)
+Bhattacharya = function(x, length_class = seq(5, 20, by = 0.5), groups){
+  
+  
+  list.of.packages <- c("mixtools")
+  new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
+  if(length(new.packages)) install.packages(new.packages)
+  
+  library(mixtools)
   
   x[is.na(x)] = 0
-  marcas = seq(5, 20, by = 0.5)
-  matriz = as.data.frame(cbind(marcas, x))
+  
+  matriz = as.data.frame(cbind(length_class, x))
   outL = tryCatch({
-    normalmixEM(rep(matriz$marcas, matriz$x), k = nModes, maxit = 5000)
+    normalmixEM(rep(matriz$length_class, matriz$x), k = groups, maxit = 5000)
   }, error=function(e) {
-    message("Not Converge") #,file_name)
+    message("Not Converge") 
     outL <- NULL
     return(outL)
   })
