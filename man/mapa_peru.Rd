@@ -50,7 +50,8 @@ mapa_peru()
   space between perfil}
 }
 \details{
-using \code{kali package} and generate a base map from Peru. You need to install \code{kali package} from https://github.com/roliveros-ramos
+using \code{kali package} and generate a base map from Peru. You need to install \code{kali package} from https://github.com/roliveros-ramos.
+
 }
 \value{
 %%  ~Describe the value returned
@@ -80,8 +81,8 @@ points(dataLand$lon, dataLand$lat)
 
 space_perfil <- 3
 mapa_peru(n_perfil = 2, space_perfil = space_perfil)
-points(dataLand$lon, dataLand$lat)
-points(dataLand$lon-space_perfil, dataLand$lat)
+points(dataLand$Longitud, dataLand$Latitud)
+points(dataLand$Longitud-space_perfil, dataLand$Latitud)
 
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
