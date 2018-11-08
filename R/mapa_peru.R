@@ -43,9 +43,7 @@ mapa_peru <- function(xlim=c(-84,-70), ylim=c(-21, -3), labelsxy = TRUE, ylab = 
     text(principalP$lon, principalP$lat, labels = principalP$puertos, cex=cex_harbor, pos=4, font=1)
     
   }
-
   axis(2,seq(ylim[1],ylim[2],by = 2), axis.Lat, las=1, cex.axis=0.6, hadj=0.5, tck=-0.010)
-  
   if(n_perfil == 1){
     axis(1,seq(xlim[1],xlim[2],by = 2), tck=-0.01, labels = NA, hadj=0.5)
     axis(1,seq(xlim[1],xlim[2],by = 2), labels = axis.Lon, cex.axis=0.6, line = -0.8, lwd = 0)
@@ -56,6 +54,5 @@ mapa_peru <- function(xlim=c(-84,-70), ylim=c(-21, -3), labelsxy = TRUE, ylab = 
     axis(3,seq(xlim[1],xlim[2],by = 2),labels = axis.Lon, cex.axis=0.6, line = -0.5, lwd = 0)
     axis(4,seq(ylim[1],ylim[2],by = 2), axis.Lat, las=1, cex.axis=0.6, hadj=0.5, tck=-0.010)
   }
-  
   #return(invisible)
 }
