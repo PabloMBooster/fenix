@@ -1,8 +1,8 @@
-\name{estima_dist}
-\alias{estima_dist}
+\name{estima_distance}
+\alias{estima_distance}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-Distance 
+Minimal distance 
 }
 \description{
 Estimate minimun distance. The distance contemplates the curvature of the earth and it is expressed in nautical miles
@@ -19,7 +19,7 @@ longitude of the observation
 latitude of the observation
 }
   \item{x1}{
-longitude of the place
+longitude base
 }
   \item{y1}{
 latitude of the place

@@ -3,7 +3,10 @@ estima_dc <- function(x,y){
   x1=shoreline$V1
   y1=shoreline$V2
   
-  A3=y1*pi/180;B3=x1*pi/180;A31=y*pi/180;B31=x*pi/180
+  A3 = y1 * pi/180
+  B3 = x1 * pi/180
+  A31 = y * pi/180
+  B31 = x * pi/180
   num2=length(x1)-1
   n=length(x)
   dfinal=NULL
@@ -21,8 +24,8 @@ estima_dc <- function(x,y){
   
   pos.na=c(which(is.na(y)==TRUE),which(is.na(x)==TRUE))
   pos.na
-  dc <- NULL
   
+  dc <- NULL
   for(i in 1:num){
     A=NULL
     B=NULL
@@ -34,12 +37,15 @@ estima_dc <- function(x,y){
     
     distancia=(60*gradinrad)
     indnonan=which(distancia>0)
-    dist_min=min(distancia[indnonan])
     
-    dfinal[i]=(dist_min)
+    if(length(indnonan) == 0){
+      dist_min = NA
+    }else{
+      dist_min=min(distancia[indnonan])  
+    }
+    
     dc <- rbind(dc,dist_min)
   }
-  dc[is.infinite(dc)] <- NA
   dc <- as.numeric(dc)
   suppressWarnings(dc)
   return(dc)

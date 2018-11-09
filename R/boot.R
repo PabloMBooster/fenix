@@ -1,4 +1,4 @@
-boot <-function(data,alfa,k){
+bootstrap <-function(data,alfa,k){
   
   n <- sum(floor(table(data[,1])*alfa)) 
   m <- dim(data)[2]
