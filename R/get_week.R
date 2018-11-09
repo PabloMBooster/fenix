@@ -5,6 +5,6 @@ get_week <- function(date){
   for(i in data_week$daySeason){
     week[date == i] = data_week[data_week$daySeason == i, "week"]
   }
-  week <- week + 1
+  week <- week 
   return(week)
 }

@@ -143,7 +143,6 @@ lineSMOOTH3 <- function (x,y,spar,factorSpline)
 }
 
 
-
 CALfreqPonderada <- function(tallas,frecuencia,a,b,captura){
   
   peso <- (a*tallas^b)*frecuencia
