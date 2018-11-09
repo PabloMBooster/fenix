@@ -1,19 +1,23 @@
-\name{estima.semana}
-\alias{estima.semana}
+\name{rangeWeek}
+\alias{rangeWeek}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-Estima el numero de semanas
+Range of day by week
 }
 \description{
-La funcion calcula cuantas semanas hay en un vector de fechas, el resultado es un data.frame que contiene el vector fecha, el vector semana como categoria y el vector semana como fecha. Las semanas son consideradas de lunes a domingo.
+%%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
-estima.semana(data, date, write = FALSE, dateFormat)
+rangeWeek(date, week)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{x}{
-%%     ~~Describe \code{x} here~~
+
+  \item{date}{
+vector of date
+}
+  \item{week}{
+vector of week
 }
 }
 \details{
@@ -30,7 +34,7 @@ estima.semana(data, date, write = FALSE, dateFormat)
 %% ~put references to the literature/web site here ~
 }
 \author{
-Giancarlo Moron 
+%%  ~~who you are~~
 }
 \note{
 %%  ~~further notes~~
@@ -42,16 +46,13 @@ Giancarlo Moron
 %% ~~objects to See Also as \code{\link{help}}, ~~~
 }
 \examples{
-##---- Should be DIRECTLY executable !! ----
-##-- ==>  Define data, use random,
-##--	or do  help(data=index)  for the standard data sets.
-
-## The function is currently defined as
-function (x) 
-{
-  }
+start <- "25/04/2017"
+end <- "30/05/2017"
+vector_date <- seq.Date(as.Date(start, "\%d/\%m/\%Y"), as.Date(end, "\%d/\%m/\%Y"), by = "day")
+vector_week <- get_week(vector_date)
+out <- rangeWeek(vector_date, vector_week)
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
-\keyword{ ~kwd1 }
+\keyword{ ~kwd1 }% use one of  RShowDoc("KEYWORDS")
 \keyword{ ~kwd2 }% __ONLY ONE__ keyword per line
