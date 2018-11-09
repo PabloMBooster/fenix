@@ -22,7 +22,7 @@ latitude of the observation
 longitude base
 }
   \item{y1}{
-latitude of the place
+latitude base
 }
 }
 \details{
