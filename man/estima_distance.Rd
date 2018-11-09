@@ -8,7 +8,7 @@ Minimal distance
 Estimate minimun distance. The distance contemplates the curvature of the earth and it is expressed in nautical miles
 }
 \usage{
-estima_dist(x, y, x1, y1)
+estima_distance(x, y, x1, y1)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{

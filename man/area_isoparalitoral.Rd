@@ -8,14 +8,14 @@ Area isoparalitoral
 knowing the latitude and distance to coast of any point identifies its corresponding isoparalitoral area
 }
 \usage{
-area_isoparalitoral(dc, lat)
+area_isoparalitoral(dist_costa,latitude)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{dc}{
+  \item{dist_costa}{
 distance to coast
 }
-  \item{lat}{
+  \item{latitude}{
 latitude
 }
 }
@@ -49,8 +49,8 @@ lon <- c(-71.25, -72.01)
 lat <- c(-17.83, -17.14)
 
 data_area <- data.frame(lon = lon, lat = lat)
-data_area$dc <- estima_dc(lon = lon, lat = lat)
-area <- area_isoparalitoral(dc = data_area$dc, lat = data_area$lat)
+data_area$dc <- estima_dc(x = lon, y = lat)
+area <- area_isoparalitoral(dist_costa = data_area$dc, latitude = data_area$lat)
 head(area)
 
 data_area$area <- area$area

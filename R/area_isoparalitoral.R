@@ -1,60 +1,62 @@
-area_isoparalitoral <- function(dc,lat)
+area_isoparalitoral <- function(dist_costa,latitude)
 {
-  area <- NULL
+  areaISO <- rep(NA, length(dist_costa))
+  dc      <- rep(NA, length(dist_costa))
+  lat     <- rep(NA, length(dist_costa))
   
-  dc[dc<=10] <- 10
-  dc[dc>10&dc<=20] <- 20
-  dc[dc>20&dc<=30] <- 30
-  dc[dc>30&dc<=40] <- 40
-  dc[dc>40&dc<=50] <- 50
-  dc[dc>50&dc<=60] <- 60
-  dc[dc>60&dc<=70] <- 70
-  dc[dc>70&dc<=80] <- 80
-  dc[dc>80&dc<=90] <- 90
-  dc[dc>90&dc<=100] <- 100
-  dc[dc>100&dc<=110] <- 110
-  dc[dc>110&dc<=120] <- 120
-  dc[dc>120&dc<=130] <- 130
-  dc[dc>130&dc<=140] <- 140
-  dc[dc>140&dc<=150] <- 150
-  dc[dc>150&dc<=160] <- 160
-  dc[dc>160&dc<=170] <- 170
-  dc[dc>170&dc<=180] <- 180
-  dc[dc>180&dc<=190] <- 190
-  dc[dc>190&dc<=200] <- 200
+  dc[dist_costa<=10] <- 10
+  dc[dist_costa>10&dist_costa<=20] <- 20
+  dc[dist_costa>20&dist_costa<=30] <- 30
+  dc[dist_costa>30&dist_costa<=40] <- 40
+  dc[dist_costa>40&dist_costa<=50] <- 50
+  dc[dist_costa>50&dist_costa<=60] <- 60
+  dc[dist_costa>60&dist_costa<=70] <- 70
+  dc[dist_costa>70&dist_costa<=80] <- 80
+  dc[dist_costa>80&dist_costa<=90] <- 90
+  dc[dist_costa>90&dist_costa<=100] <- 100
+  dc[dist_costa>100&dist_costa<=110] <- 110
+  dc[dist_costa>110&dist_costa<=120] <- 120
+  dc[dist_costa>120&dist_costa<=130] <- 130
+  dc[dist_costa>130&dist_costa<=140] <- 140
+  dc[dist_costa>140&dist_costa<=150] <- 150
+  dc[dist_costa>150&dist_costa<=160] <- 160
+  dc[dist_costa>160&dist_costa<=170] <- 170
+  dc[dist_costa>170&dist_costa<=180] <- 180
+  dc[dist_costa>180&dist_costa<=190] <- 190
+  dc[dist_costa>190&dist_costa<=200] <- 200
   #
-  lat[lat> -3.5] <- 3
-  lat[lat<= -3.5 & lat> -4] <- 3.5
-  lat[lat<= -4   & lat> -4.5] <- 4
-  lat[lat <= -4.5 & lat > -5] <- 4.5
-  lat[lat <= -5   & lat > -5.5] <- 5
-  lat[lat <= -5.5 & lat > -6] <- 5.5
-  lat[lat <= -6   & lat > -6.5] <- 6
-  lat[lat <= -6.5 & lat > -7] <- 6.5
-  lat[lat <= -7   & lat > -7.5] <- 7
-  lat[lat <= -7.5 & lat > -8] <- 7.5
-  lat[lat <= -8   & lat > -8.5] <- 8
-  lat[lat <= -8.5 & lat > -9] <- 8.5
-  lat[lat <= -9   & lat > -9.5] <- 9
-  lat[lat <= -9.5 & lat > -10] <- 9.5
-  lat[lat <= -10  & lat > -10.5] <- 10
-  lat[lat <= -10.5 & lat > -11] <- 10.5
-  lat[lat <= -11   & lat > -11.5] <- 11
-  lat[lat <= -11.5 & lat > -12] <- 11.5
-  lat[lat <= -12   & lat > -12.5] <- 12
-  lat[lat <= -12.5 & lat > -13] <- 12.5
-  lat[lat <= -13   & lat > -13.5] <- 13
-  lat[lat <= -13.5 & lat > -14] <- 13.5
-  lat[lat <= -14   & lat > -14.5] <- 14
-  lat[lat <= -14.5 & lat > -15] <- 14.5
-  lat[lat <= -15   & lat > -15.5] <- 15
-  lat[lat <= -15.5 & lat > -16] <- 15.5
-  lat[lat <= -16   & lat > -16.5] <- 16
-  lat[lat <= -16.5 & lat > -17] <- 16.5
-  lat[lat <= -17   & lat > -17.5] <- 17
-  lat[lat <= -17.5 & lat > -18] <- 17.5
-  lat[lat <= -18   & lat > -18.5] <- 18
-  lat[lat <= -18.5  & lat > -19] <- 18.5
+  lat[latitude> -3.5] <- 3
+  lat[latitude<= -3.5 & latitude> -4] <- 3.5
+  lat[latitude<= -4   & latitude> -4.5] <- 4
+  lat[latitude <= -4.5 & latitude> -5] <- 4.5
+  lat[latitude <= -5   & latitude> -5.5] <- 5
+  lat[latitude <= -5.5 & latitude> -6] <- 5.5
+  lat[latitude <= -6   & latitude> -6.5] <- 6
+  lat[latitude <= -6.5 & latitude> -7] <- 6.5
+  lat[latitude <= -7   & latitude> -7.5] <- 7
+  lat[latitude <= -7.5 & latitude> -8] <- 7.5
+  lat[latitude <= -8   & latitude> -8.5] <- 8
+  lat[latitude <= -8.5 & latitude> -9] <- 8.5
+  lat[latitude <= -9   & latitude> -9.5] <- 9
+  lat[latitude <= -9.5 & latitude> -10] <- 9.5
+  lat[latitude <= -10  & latitude> -10.5] <- 10
+  lat[latitude <= -10.5 & latitude> -11] <- 10.5
+  lat[latitude <= -11   & latitude> -11.5] <- 11
+  lat[latitude <= -11.5 & latitude> -12] <- 11.5
+  lat[latitude <= -12   & latitude> -12.5] <- 12
+  lat[latitude <= -12.5 & latitude> -13] <- 12.5
+  lat[latitude <= -13   & latitude> -13.5] <- 13
+  lat[latitude <= -13.5 & latitude> -14] <- 13.5
+  lat[latitude <= -14   & latitude> -14.5] <- 14
+  lat[latitude <= -14.5 & latitude> -15] <- 14.5
+  lat[latitude <= -15   & latitude> -15.5] <- 15
+  lat[latitude <= -15.5 & latitude> -16] <- 15.5
+  lat[latitude <= -16   & latitude> -16.5] <- 16
+  lat[latitude <= -16.5 & latitude> -17] <- 16.5
+  lat[latitude <= -17   & latitude> -17.5] <- 17
+  lat[latitude <= -17.5 & latitude> -18] <- 17.5
+  lat[latitude <= -18   & latitude> -18.5] <- 18
+  lat[latitude <= -18.5  & latitude> -19] <- 18.5
   #
   areaISO[dc==10&lat==3] <- 1030
   areaISO[dc==20&lat==3] <- 2030
@@ -699,7 +701,7 @@ area_isoparalitoral <- function(dc,lat)
   
   dc   <- as.numeric(dc)
   lat  <- as.numeric(lat)
-  area <- as.numeric(area)
+  area <- as.numeric(areaISO)
   out  <- data.frame(dc,lat,area)
   
   return(out)
