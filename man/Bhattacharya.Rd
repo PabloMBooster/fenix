@@ -79,10 +79,10 @@ out_cohortes = Bhattacharya(x = catch_frequency, groups = num_modas)
 cohortes <- NULL
 for(i in 1:length(out_cohortes$tableBhatt$Population)){
   N = out_cohortes$tableBhatt$Population[i]
-  mu = out_cohortes$tableBhatt$Mean[i]
-  sigma = out_cohortes$outL$sigma[i]
+  L = out_cohortes$tableBhatt$Mean[i]
+  S = out_cohortes$outL$sigma[i]
 
-  cohortei = cohort_to_length(cohort = c(N, mu, sigma), lower = 5, upper = 20) 
+  cohortei = cohort_to_length(cohort = c(N, L, S), lower = 5, upper = 20) 
   cohortes = rbind(cohortes, cohortei)
 }
 

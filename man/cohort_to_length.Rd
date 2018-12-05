@@ -16,10 +16,10 @@ cohort_to_length(cohort, lower, upper, delta = 0.5, delta.c = 0.1, FUN = ddnorm1
 is a input of a 'cohort': N (abundance); L (middle length) y S (standard deviation).
 }
   \item{lower}{
-%%     ~~Describe \code{lower} here~~
+lower interval
 }
   \item{upper}{
-%%     ~~Describe \code{upper} here~~
+upper interval
 }
   \item{delta}{
 is the length of the class interval (as measured by fishery)
