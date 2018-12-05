@@ -15,6 +15,7 @@ modas <- function(Length, Lmin, Lmax, dL, umbral = 10){
     Lmoda0 <- Lmoda0[order(vector[moda0], decreasing=TRUE)]
     Lmoda0 <- c(Lmoda0,rep(NA,10-length(moda0)))
     moda   <- rbind(moda,Lmoda0) 
-  }  
+  }
+  row.names(moda) <- NULL
   return(moda)
 } 

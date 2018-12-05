@@ -1,4 +1,4 @@
-Bhattacharya = function(x, length_class = seq(5, 20, by = 0.5), groups){
+Bhattacharya = function(x, length_class = seq(5, 20, by = 0.5), groups, mu = NULL, maxit = 5000){
   
   
   list.of.packages <- c("mixtools")
@@ -11,7 +11,7 @@ Bhattacharya = function(x, length_class = seq(5, 20, by = 0.5), groups){
   
   matriz = as.data.frame(cbind(length_class, x))
   outL = tryCatch({
-    normalmixEM(rep(matriz$length_class, matriz$x), k = groups, maxit = 5000)
+    normalmixEM(rep(matriz$length_class, matriz$x), k = groups, mu = mu, maxit = maxit)
   }, error=function(e) {
     message("Not Converge") 
     outL <- NULL

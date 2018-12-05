@@ -151,6 +151,14 @@ CALfreqPonderada <- function(tallas,frecuencia,a,b,captura){
   return(tallasPoderadas)
 }
 
+weighted_frequency <- function(length,frequency,a,b,catch){
+  weight  <- (a*length^b)*frequency
+  freqW   <- (catch/sum(weight))*weight
+  lengthW <- freqW/(a*length^b)
+  return(lengthW)
+}
+
+
 CALtallaMedia <- function(tallas, tallasPoderadas){
   talla <- tallas
   tallaMedia <- 1/n*sum(talla*tallasPoderadas)/sum(tallasPoderadas)
