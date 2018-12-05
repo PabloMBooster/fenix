@@ -69,7 +69,7 @@ num_modas = apply(view_modas, 1, unique_modas)
 
 # weighted
 catch_frequency = weighted_frequency(length = length, frequency = sample_frequency, a = 0.003925, b = 3.2178, catch =  50000) 
-plot(length, catch_frequency, type = "l", lwd = 2, ylab = "Catch (kg)", xlab = "Length (cm)")
+plot(length, catch_frequency, type = "l", lwd = 2, ylab = "Catch (number of individuals)", xlab = "Length (cm)")
 
 # bhattacharya
 out_cohortes = Bhattacharya(x = catch_frequency, groups = num_modas) 
@@ -87,7 +87,7 @@ for(i in 1:length(out_cohortes$tableBhatt$Population)){
 }
 
 # plots
-plot(length, catch_frequency, type = "l", lwd = 2, ylab = "Catch (kg)", xlab = "Length (cm)")
+plot(length, catch_frequency, type = "l", lwd = 2, ylab = "Catch (number of individuals)", xlab = "Length (cm)")
 lines(length, cohortes[1,], col = 3, lty = 2)
 lines(length, cohortes[2,], col = 3, lty = 2)
 
