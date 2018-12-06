@@ -88,8 +88,8 @@ for(i in 1:length(out_cohortes$tableBhatt$Population)){
 
 # plots
 plot(length, catch_frequency, type = "l", lwd = 2, ylab = "Catch (number of individuals)", xlab = "Length (cm)")
-lines(length, cohortes[1,], col = 3, lty = 2)
-lines(length, cohortes[2,], col = 3, lty = 2)
+lines(length, cohortes[1,], col = 2, lty = 2)
+lines(length, cohortes[2,], col = 2, lty = 2)
 
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
