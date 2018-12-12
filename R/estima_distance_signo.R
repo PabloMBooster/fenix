@@ -41,7 +41,7 @@ estima_distance_signo <- function (x, y, x1, y1)
       dist_min=min(distancia[indnonan])  
     }
     
-    distance_min <- rbind(distance,dist_min)
+    distance_min <- rbind(distance_min,dist_min)
   }
   distance_min <- as.numeric(distance_min)
   suppressWarnings(distance_min)
