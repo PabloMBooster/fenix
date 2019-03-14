@@ -13,13 +13,13 @@ spatial_catch_lat(data, fecha_inicio, fecha_final, lat_superior, lat_inferior, .
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{data}{
-base de datos contiene por viaje la captura, fecha, latitud y longitud
+la base de datos contiene por viaje la captura, fecha, latitud y longitud
 }
   \item{fecha_inicio}{
 fecha de inicio
 }
   \item{fecha_final}{
-fecha finala
+fecha final
 }
   \item{lat_superior}{
 latitud superior
@@ -71,32 +71,35 @@ fecha_final  <- as.Date("2019-04-01", format = "\%Y-\%m-\%d")
 lat_superior <- 3
 lat_inferior <- 18.5
 
-catch <- spatial_catch_lat(data = captura, fecha_inicio, fecha_final, lat_superior, lat_inferior)
+catch <- spatial_catch_lat(data = base_captura0, fecha_inicio, fecha_final, lat_superior, lat_inferior)
 
-scale.color = designer.colors(ceiling(max(base_fake)), 
-                                c("white",'cyan','cyan','cyan','green','green','green','green', 'yellow', 'yellow', 'yellow', 'yellow', 'red', 'red', 'red','black','black','black','black'))
+require(fields)
+scale.color = designer.colors(ceiling(max(catch$matriz_captura)), 
+                              c("white",'cyan','cyan','cyan','green','green','green','green', 'yellow', 'yellow', 'yellow', 'yellow', 'red', 'red', 'red','black','black','black','black'))
 
-png("captura_espacial.png",width = 17, height = 5, units = "in", res = 140)
-  
+png("captura_espacial2.png",width = 17, height = 5, units = "in", res = 140)
+
 nf= layout(mat = matrix(c(1,2), nrow = 1, ncol = 2), widths = c(0.9, 0.1))
 layout.show(nf)
-  
+
 par(mar = c(5, 3.7,0.3,0))
 image(catch$akima.bic, col = scale.color, ylim = c(4,18),
-        xlab = "", ylab = "", axes = F)
-axis(1, at = seq(0,length(catch$xLab), length.out = 13), labels = catch$labels_month, las = 2, cex.axis = 0.75)
+      xlab = "", ylab = "", axes = F)
+axis(1, at = seq(0,length(catch$xLab), length.out = length(catch$labels_month)), labels = catch$labels_month, las = 2, cex.axis = 0.75)
 axis(2, at = seq(lat_superior,lat_inferior,2),labels = seq(lat_inferior,lat_superior,-2), las = 2)
-  
-mtext(text = "Latitud (°S)", side = 2, line = 2)
+
+mtext(text = "Latitud °S)", side = 2, line = 2)
 box()
-  
-par(mar = c(1,1,0,0))
+
+require(geoR)  
+par(mar = c(1,0,0,0))
 plot(NA, NA, xlim = c(0,1), ylim = c(0,1), axes = FALSE, xlab = "", ylab = "")
-legend.krige(x.leg = c(0.1,0.3),y.leg = c(0.2,0.9), 0:ceiling(max(catch$base_catch)),
-               col=scale.color,  vertical=T)
+legend.krige(x.leg = c(0.1,0.3),y.leg = c(0.2,0.9), 0:ceiling(max(catch$matriz_captura)),
+             col=scale.color,  vertical=T)
 text(x = 0.2, y = 0.95, labels = "Tons", cex = 0.8, font = 2)
-  
+
 dev.off()
+
 
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the

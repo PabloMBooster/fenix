@@ -11,11 +11,11 @@ spatial_catch_lat <- function(data, fecha_inicio, fecha_final, lat_superior, lat
     stop("Install fields package")
   }
   
-  area <- area_isoparalitoral(dist_costa = captura$dc, latitude = captura$lat)
-  captura$GLat <- area$lat
-  captura$GDc  <- area$dc
+  area <- area_isoparalitoral(dist_costa = data$dc, latitude = data$lat)
+  data$GLat <- area$lat
+  data$GDc  <- area$dc
   
-  matrix_cacth_lat <- tapply(captura$catch, list(captura$GLat, captura$fecha), mean)
+  matrix_cacth_lat <- tapply(data$catch, list(data$GLat, data$fecha), mean)
   matrix_cacth_lat[is.na(matrix_cacth_lat)] <- 0
   
   vector_date <- seq.Date(fecha_inicio, fecha_final, by = "day")
