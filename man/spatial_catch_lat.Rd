@@ -61,7 +61,6 @@ base_captura0    <- base_captura[!is.na(base_captura$lat) & !is.na(base_captura$
 
 base_captura0    <- base_captura0[!is.na(base_captura0$catch) & base_captura0$catch > 0, ]
 base_captura0$fecha <- as.Date(paste0(base_captura0$year,"-", base_captura0$month, "-", base_captura0$day), format = "\%Y-\%m-\%d")
-base_captura0$dc <- estima_dc(base_captura0$lon, base_captura0$lat)
 
 # fechas de analisis
 fecha_inicio <- as.Date("2018-01-01", format = "\%Y-\%m-\%d")
