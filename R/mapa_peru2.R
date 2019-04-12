@@ -1,40 +1,47 @@
-mapa_peru_simple <- function(xlim=c(-84,-70), ylim=c(-21, -3), labelsxy = TRUE, axis4L = FALSE, perfil = FALSE,
-                             col="khaki1", border = "khaki1", sea.col="white", cex.Port = 0.65, add = FALSE){
+mapa_peru2 <- function(xlim=c(-84,-70), ylim=c(-21, -3), xlab = "", ylab = "",
+                       cex_axis = 1, cex_harbor = 1, col_harbor = 1, font_harbor = 2,
+                       land.col="khaki1", border.map = "khaki1", add1 = FALSE,
+                       n_perfil = 1, space_perfil = 3){
   
-  require(maps)
-  require(mapdata)
-  
+  # require(maps)
+  # require(mapdata)
+  options(warn=-1)
+  x11()
   axis.Lon <- paste(abs(seq(xlim[1],xlim[2],by = 2)),"°W")
   axis.Lat <- paste(abs(seq(ylim[1],ylim[2],by = 2)),"°S")
   
   Encoding(axis.Lon) <- "UTF-8"
   Encoding(axis.Lat) <- "UTF-8"
   
-  map("worldHires",fill=T, myborder = FALSE, col = col, border = border,
-      xlim = xlim, ylim = ylim, add = add)
-  
-  lines(linePeru$lon, linePeru$lat, col="gray40")
-  
-  if(isTRUE(labelsxy)){
-    mtext("Longitud", side=1, line=1.5, cex=0.8)
-    mtext("Latitud", side=2, line=1.8, cex=0.8)
-  }
-  principalP = puertosPeru[c(2,4,5,7,8,10,12,14,16,17,19),]
-  text(principalP$lon, principalP$lat, labels = principalP$puertos, cex=cex.Port, pos=4, font=1)
-  
-  # axis
-  axis(2,seq(ylim[1],ylim[2],by = 2), axis.Lat, las=1, cex.axis=0.6, hadj=0.5, tck=-0.010)
-  
-  if(!isTRUE(perfil)){
-    axis(1,seq(xlim[1],xlim[2],by = 2), tck=-0.01, labels = NA, hadj=0.5)
-    axis(1,seq(xlim[1],xlim[2],by = 2), labels = axis.Lon, cex.axis=0.6, line = -0.8, lwd = 0)
+  xlim2 <- xlim
+  if(n_perfil > 1){
+    xlim2[1] <- xlim2[1] + (n_perfil-1)*(-space_perfil)
   }
   
-  if(axis4L == TRUE){
-    axis(3,seq(xlim[1],xlim[2],by = 2), tck=-0.01, labels = NA, hadj=0.5)
-    axis(3,seq(xlim[1],xlim[2],by = 2),labels = axis.Lon, cex.axis=0.6, line = -0.5, lwd = 0)
-    axis(4,seq(ylim[1],ylim[2],by = 2), axis.Lat, las=1, cex.axis=0.6, hadj=0.5, tck=-0.010)
-  }
+  par(mar = c(2,2,0.1,0.1), oma = c(2,2,2,2))
+  
+  plot(NA, xlim = xlim2, ylim = ylim, axes = FALSE, xlab = xlab, ylab = ylab, add = add1)
+  polygon()
+  # map("worldHires", fill=TRUE, col = land.col, add = TRUE, 
+  #     xlim = xlim, ylim = ylim, border = border.map)
   box()
-  #return(invisible)
+  
+  lines(linePeru$lon, linePeru$lat, col = "gray40")
+  
+  if(n_perfil > 1){
+    for(i in 2:n_perfil){
+      lines(linePeru$lon + (i-1)*-3, linePeru$lat, col="gray40")
+    }
+  }
+  
+  principalP = puertosPeru[c(2,4,5,7,8,10,12,14,16,17,19),]
+  text(principalP$lon, principalP$lat, labels = principalP$puertos, pos=4, 
+       col = col_harbor, cex = cex_harbor, font = font_harbor)
+  
+  axis(2,seq(ylim[1],ylim[2],by = 2), axis.Lat, las=1, cex.axis=cex_axis, hadj=0.5, tck=-0.010)
+  
+  if(n_perfil == 1){
+    axis(1,seq(xlim[1],xlim[2],by = 2), tck=-0.01, labels = NA, hadj=0.5)
+    axis(1,seq(xlim[1],xlim[2],by = 2), labels = axis.Lon, cex.axis=cex_axis, line = -0.8, lwd = 0)
+  }
 }
