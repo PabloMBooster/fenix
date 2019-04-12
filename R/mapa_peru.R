@@ -1,4 +1,4 @@
-mapa_peru3 <- function(xlim=c(-84,-70), ylim=c(-21, -3), xlab = "", ylab = "",
+mapa_peru <- function(xlim=c(-84,-70), ylim=c(-21, -3), xlab = "", ylab = "",
                        cex_axis = 1, cex_harbor = 1, col_harbor = 1, font_harbor = 2,
                        land.col="khaki1", border.map = "khaki1", add1 = FALSE,
                        n_perfil = 1, space_perfil = 3){
