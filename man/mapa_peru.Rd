@@ -2,55 +2,66 @@
 \alias{mapa_peru}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-Map of Peru}
+Mapa de Peru}
 \description{
-generate a base map from Peru
+genera una mascara del mapa de Peru
 }
 \usage{
 mapa_peru()
 }
 \arguments{
   \item{xlim}{
-  is the limit of the longitude}
+  rango en longitud}
 
   \item{ylim}{
-  is the limit of the latitude}
-
-  \item{labelsxy}{
-  put name longitude and latitude, by default is TRUE}
+  rango en latitud}
 
   \item{ylab}{
-  name of the label y, by default is latitud}
+  etiqueta del eje y}
 
   \item{xlab}{
-  name of the label x, by default is longitud}
-
-  \item{all_axis}{
-  adds 4 axis to the current plot, by default add 2 axis}
+  etiqueta del eje y}
 
   \item{land.col}{
-  color of the land}
+  color de la costa peruana}
+  
+    \item{border.map}{
+  color del borde}
 
   \item{sea.col}{
-  color or the sea}
+  color del mar}
 
-  \item{names_harbor}{
-  put names of the harbor}
-
+  \item{cex_axis}{
+  tamanho de letra o simbolo de los ejes}
+  
   \item{cex_harbor}{
-  font size of the harbor}
+  tamanho de letra de los puertos}
+  
+  \item{col_harbor}{
+  color de letra de los puertos}
+  
+  \item{font_harbor}{
+  tipo de letra del puerto}
 
-  \item{add}{
-  add other plot}
+  \item{add1}{
+  agregar mapa}
 
   \item{n_perfil}{
-  number of perfil, by default only 1}
+  numero de perfiles en el mapa}
 
   \item{space_perfil}{
-  space between perfil}
+  espacio entre perfiles, por defecto cada 3 grados}
+  
+  \item{area_iso}{
+  agregar areas isopalitorales, por defecto FALSE}
+  
+  \item{name_area_iso}{
+  nombre de las areas isoparalitorales a graficar
+  }
 }
+
 \details{
-using \code{kali package} and generate a base map from Peru. You need to install \code{kali package} from https://github.com/roliveros-ramos.
+
 
 }
 \value{
@@ -88,7 +99,7 @@ points(dataLand$Longitud-space_perfil, dataLand$Latitud)
 head(points_fishing)
 
 points_fishing$week <- get_week(points_fishing$date)
-label_week <- rangeWeek(data = points_fishing, semana = "week", fecha = "date")
+label_week <- rangeWeek(points_fishing$date, points_fishing$week)
 
 n = -3
 space = (0:(length(unique(points_fishing$week))-1))*n
@@ -98,7 +109,7 @@ for(i in 1:length(unique(points_fishing0$week))){
 }
 
 n_perfil <-  length(unique(points_fishing$week))
-mapa_peru(n_perfil = n_perfil, ylab = "")
+mapa_peru(n_perfil = n_perfil)
 
 for(i in 1:length(space)){
   lines(linePeru$lon + space[i], linePeru$lat, col = "gray45")

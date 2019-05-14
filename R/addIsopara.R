@@ -1,6 +1,6 @@
-addIsopara = function(dataIsopara = Isopara, Cols =  "khaki1", xLim, yLim){
+addIsopara = function(dataIsopara = lonlat_areaIso, Cols =  "lightgray",  ylim = ylim){
   # dataIsopara = read.csv("areas-isoparalitorales.csv")
-  dataIsopara = subset(dataIsopara, subset = dataIsopara$lat <= yLim[2] & dataIsopara$lat >= yLim[1])
+  dataIsopara = subset(dataIsopara, subset = dataIsopara$lat <= ylim[2] & dataIsopara$lat >= ylim[1])
   idx_areas = unique(dataIsopara$area)
   
   for(r in seq_along(idx_areas)){
