@@ -7,7 +7,7 @@ mapa_peru2 <- function(xlim=c(-86,-70), ylim=c(-21, -3), xlab = "", ylab = "",
   require(maps)
   require(mapdata)
   options(warn=-1)
-  x11()
+  #x11()
   axis.Lon <- paste(abs(seq(xlim[1],xlim[2],by = 2)),"°W")
   axis.Lat <- paste(abs(seq(ylim[1],ylim[2],by = 2)),"°S")
 
