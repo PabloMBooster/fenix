@@ -19,7 +19,7 @@ mapa_peru2 <- function(xlim=c(-86,-70), ylim=c(-21, -3), xlab = "", ylab = "",
     xlim2[1] <- xlim2[1] + (n_perfil-1)*(-space_perfil)
   }
 
-  par(mar = c(2,2,0.1,0.1), oma = c(2,2,2,2))
+  #par(mar = c(2,2,0.1,0.1), oma = c(2,2,2,2))
 
   plot(NA, xlim = xlim2, ylim = ylim, axes = FALSE, xlab = xlab, ylab = ylab, add = add1)
   map("worldHires", fill=TRUE, col = land.col, add = TRUE,
