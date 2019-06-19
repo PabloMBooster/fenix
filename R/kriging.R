@@ -3,9 +3,7 @@ kriging <- function(datageo, LongMin, LongMax, LatMin, LatMax, CellSize, obj, bo
   if (!require(geoR)) 
     stop("package geoR is required to run kriging()")
   
-  #if (!require(kali)) 
-  #  stop("package kali is required to run map kriging()")
-  
+
   grdg  = expand.grid(x = seq(LongMin + CellSize / 2, LongMax - CellSize / 2, by = CellSize), 
                       y = seq(LatMin + CellSize / 2, LatMax - CellSize / 2, by = CellSize))   # tab coords of the study area
   
