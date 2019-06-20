@@ -6,6 +6,6 @@ Date: 2018-11-08
 Author: Pablo Martin-Marin Abanto <pablo.marin.abanto@gmail.com>
 Maintainer: Pablo Martin-Marin Abanto <pablo.marin.abanto@gmail.com>
 Description: Tools for process and analyze fishery  data
-Depends: plotrix, kali, mixtools, nortest
+Depends: plotrix, mixtools, nortest
 License: GPL-2
 LazyData: true
