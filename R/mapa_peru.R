@@ -57,11 +57,5 @@ mapa_peru <- function(xlim=c(-86,-70), ylim=c(-21, -3), xlab = "", ylab = "",
   }
 }
 
-# 
-# load("C:/pablo/D/github/tasaR/data/AIPData_new.RData")
-# load("C:/pablo/D/github/tasaR/data/AIPData_old.RData")
-# # 
-# head(AIPData_old)
-# head(AIPData_new)
 
 #mapa_peru(area_iso = T, name_area_iso = c(12180, 13180))

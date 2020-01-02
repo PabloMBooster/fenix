@@ -117,7 +117,12 @@ for(i in 1:length(space)){
 }
 points(points_fishing0$lon, points_fishing0$lat, cex = 0.8, col = 4, pch = 16) 
 
+
+# dibujar algunas areas iso
+mapa_peru(area_iso = T, name_area_iso = c(12180, 13180))
 }
+
+
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
 \keyword{ ~kwd1 }% use one of  RShowDoc("KEYWORDS")
