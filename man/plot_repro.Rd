@@ -8,7 +8,7 @@ Plots of reproductive indices
 Generate plots about (IGS, IA, FD, CG y FC)
 }
 \usage{
-plot_repro(tiempo, indice, patron, sd_patron, plot_patron = TRUE, valor_crucero = NULL, nombre_indice = NULL, nombre_indice_legenda = NULL, nombre_patron = NULL, nombre_crucero = NULL)
+plot_repro(tiempo, indice, patron, sd_patron, plot_patron = TRUE, legend = TRUE, valor_crucero = NULL, nombre_indice = NULL, nombre_indice_legenda = NULL, nombre_patron = NULL, nombre_crucero = NULL)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -26,6 +26,9 @@ plot_repro(tiempo, indice, patron, sd_patron, plot_patron = TRUE, valor_crucero 
   }
   \item{plot_patron}{
     plot patron, default is TRUE
+  }
+  \item{legend}{
+    add legend
   }
   \item{valor_crucero}{
    the value of the reproductive index obtained from the survey
