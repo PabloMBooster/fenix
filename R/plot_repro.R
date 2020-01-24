@@ -1,5 +1,5 @@
 plot_repro <- function(tiempo, indice, patron, sd_patron, valor_crucero = NULL, fecha = as.Date(time, format = "%d/%m/%Y"), 
-                       nombre_indice = NULL, nombre_indice_legenda = NULL,  nombre_patron = NULL,
+                       nombre_indice = NULL, nombre_indice_legenda = NULL,  nombre_patron = NULL, plot_patron = TRUE,
                         nombre_crucero = NULL, axis_x = TRUE, dl = 3){
   require(plotrix)
   x <- 1:length(indice)
@@ -18,11 +18,19 @@ plot_repro <- function(tiempo, indice, patron, sd_patron, valor_crucero = NULL, 
   if(is.null(nombre_indice)){
     nombre_indice = "nombre indice"
   }
-  plotCI(x, y,uwi,lwi, lwd = 1, col = "red", scol = "gray30",slty = 1, ui = 2, 
+  
+  if(plot_patron == FALSE){
+    col_bar  = "white"
+    col_patron = "white"
+  }else{
+    col_bar  = "gray30"
+    col_patron = "red"
+  }
+  plotCI(x, y,uwi,lwi, lwd = 1, slty = 1, ui = 2, scol = col_bar,
          xlab="", pt.bg=par("bg"), pch = ".",
          ylab=nombre_indice, ylim = c(valor_min, valor_max),
          axes=F)
-  lines(x,y, col = 2,lwd = 2)
+  lines(x,y, col = col_patron, lwd = 2)
   lines(x,indice,col = 4,lwd = 2)
   
   if(!is.null(valor_crucero)){
@@ -46,10 +54,20 @@ plot_repro <- function(tiempo, indice, patron, sd_patron, valor_crucero = NULL, 
   if(is.null(nombre_patron)){
     nombre_patron <- "Patron"
   }
+  if(plot_patron == TRUE){
+    
   if(is.null(nombre_crucero)){
     legend("toprigh",c(nombre_patron, nombre_indice_legenda), lty = c(1,1), lwd = c(2,2),col = c(2,4),bty = "n")
   }else{
     legend("toprigh",c(nombre_patron, nombre_indice_legenda, nombre_crucero), lty = c(1,1,0), lwd = c(2,2,NA),pch = c(NA,NA,16), col = c(2,4,1),bty = "n")
   }
-
+  }
+  if(plot_patron == FALSE){
+    
+    if(is.null(nombre_crucero)){
+      legend("toprigh", nombre_indice_legenda, lty = 1, lwd = 2, col = 4, bty = "n")
+    }else{
+      legend("toprigh",c(nombre_indice_legenda, nombre_crucero), lty = c(1,0), lwd = c(2,NA), pch = c(NA,16), col = c(4,1), bty = "n")
+    }
+  }
 }
