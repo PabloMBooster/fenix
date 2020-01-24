@@ -51,6 +51,12 @@ plot_repro(tiempo, indice, patron, sd_patron, plot_patron = TRUE, legend = TRUE,
   \item{dl}{
   increases the maximun limit to ylim
   }
+    \item{col_index}{
+  index color
+  }
+  \item{space_axis}{
+  space_axis = 1 or space_axis = 2
+  }
 }
 \details{
 %%  ~~ If necessary, more details than the description above ~~
