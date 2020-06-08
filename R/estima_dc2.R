@@ -1,5 +1,8 @@
 estima_dc2 <- function(lon, lat, polygon = NULL){
   
+  require(sp)
+  require(rgeos)
+  
   temp = data.frame(lon = lon, lat = lat)
   posiciones = temp[,c("lon", "lat")]
   #- Convert VMS data to SpatialPolygons
