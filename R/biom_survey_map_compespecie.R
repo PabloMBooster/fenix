@@ -12,7 +12,7 @@ biom_survey_map_compespecie = function(baseDat, outFolder = ".", outFile = "MapP
     png(filename = file.path(outFolder, outFile), width = widthFig, height = heightFig,
         units = "px", res = 130)
   }
-  
+  par(mar = c(4,4,1,1), oma = c(0,0,0,0))
   mapa_peru(area_iso = addIsoAreas, n_perfil = n_perfil )
   selDat = baseDat
   sort(unique(selDat[, "NOMBRE_COMERCIAL"]))

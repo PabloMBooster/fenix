@@ -12,7 +12,7 @@ biom_survey_map_juveniles = function(baseDat, outFolder = ".", outFile = "Lances
     png(filename = file.path(outFolder, outFile), width = widthFig, height = heightFig,
         units = "px", res = 130)
   }
-  
+  par(mar = c(4,4,1,1), oma = c(0,0,0,0))
   mapa_peru(xlim = xlim, ylim = ylim, area_iso = addIsoAreas, n_perfil = n_perfil)
   rbPal = colorRampPalette(c('blue', "green", "yellow", 'red'))
   PalCols = rbPal(101)
