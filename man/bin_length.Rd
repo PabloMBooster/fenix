@@ -8,7 +8,7 @@ bin size
 Generate different bin size
 }
 \usage{
-bin_length(x)
+bin_length(x, Lmin, Lmax, bin)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
