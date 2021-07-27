@@ -45,7 +45,7 @@ mapa_peru <- function(xlim=c(-86,-70), ylim=c(-21, -3), xlab = "", ylab = "", ha
 
   if(n_perfil == 1){
     axis(1,seq(xlim[1],xlim[2],by = 2), tck=-0.01, labels = NA, hadj=hadj)
-    axis(1,seq(xlim[1],xlim[2],by = 2), labels = axis.Lon, cex.axis=cex_axis, line = -0.8, lwd = 0)
+    axis(1,seq(xlim[1],xlim[2],by = 2), labels = axis.Lon, hadj=hadj, cex.axis=cex_axis, line = -0.8, lwd = 0)
   }
 
   if(isTRUE(area_iso)){
