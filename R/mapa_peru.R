@@ -1,4 +1,4 @@
-mapa_peru <- function(xlim=c(-86,-70), ylim=c(-21, -3), xlab = "", ylab = "", hadj=0.5,
+mapa_peru <- function(xlim=c(-86,-70), ylim=c(-21, -3), xlab = "", ylab = "", hadj=0.5, padj  = 0.5,
                        cex_axis = 1, cex_harbor = 1, col_harbor = 1, font_harbor = 2,
                        land.col="khaki1", border.map = "khaki1", add1 = FALSE,
                        n_perfil = 1, space_perfil = 3,
@@ -44,8 +44,8 @@ mapa_peru <- function(xlim=c(-86,-70), ylim=c(-21, -3), xlab = "", ylab = "", ha
   axis(2,seq(ylim[1],ylim[2],by = 2), axis.Lat, las=1, cex.axis=cex_axis, hadj=hadj, tck=-0.010)
 
   if(n_perfil == 1){
-    axis(1,seq(xlim[1],xlim[2],by = 2), tck=-0.01, labels = NA, hadj=hadj)
-    axis(1,seq(xlim[1],xlim[2],by = 2), labels = axis.Lon, hadj=hadj, cex.axis=cex_axis, line = -0.8, lwd = 0)
+    axis(1,seq(xlim[1],xlim[2],by = 2), tck=-0.01, labels = NA)
+    axis(1,seq(xlim[1],xlim[2],by = 2), labels = axis.Lon, padj=padj, cex.axis=cex_axis, line = -0.8, lwd = 0)
   }
 
   if(isTRUE(area_iso)){
