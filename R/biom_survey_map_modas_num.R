@@ -47,11 +47,11 @@ biom_survey_map_modas_num = function(baseDat, outFolder = ".", outFile = "ModaPr
   cols3 = brewer.pal(n = 9, name = "Blues")[3:7]
   cols4 = brewer.pal(n = 9, name = "Oranges")[3:7]
   cols6 = brewer.pal(n = 9, name = "Greys")[3:6]
-  
-  scale.color3 = designer.colors(80, cols3)
+
+  scale.color3 = designer.colors(79, cols3)
   scale.color4 = designer.colors(40, cols4)
   scale.color5 = designer.colors(25, cols5)
-  scale.color6 = designer.colors(55, cols6)
+  scale.color6 = designer.colors(56, cols6)
   # 
   scale.color2 = c(scale.color3, scale.color4, scale.color5, scale.color6)
   
