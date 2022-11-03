@@ -1,7 +1,11 @@
-modas <- function(Length, Lmin, Lmax, dL, umbral = 10){
+modas <- function(x, Lmin, Lmax, dL, umbral = 10){
   moda=NULL
-  for(i in 1:length(Length[,1])){
-    vector <- as.numeric(Length[i,])
+  for(i in 1:length(x[,1])){
+    vector <- as.numeric(x[i,])
+    if(table(vector)[which(max(vector) == names(table(vector)))] >1){
+      vector[which.max(vector)] = max(max(vector)) + 0.001
+    }
+    
     moda0  <- which(diff(sign(diff(vector)))==-2)+1
     if(length(vector[moda0]) > 1){
       for(i in 1:length(vector[moda0])){
