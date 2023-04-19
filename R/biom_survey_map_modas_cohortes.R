@@ -10,13 +10,13 @@ biom_survey_map_modas_cohortes <- function (baseDat, outFolder = ".", outFile = 
   if (is.null(outFolder)) {
     outFolder <- getwd()
   }
-  if (save) {
-    png(filename = file.path(outFolder, outFile), width = widthFig, 
-        height = heightFig, units = "px", res = 130)
-  }
-  par(mar = c(4, 4, 1, 1), oma = c(0, 0, 0, 0))
-  mapa_peru(xlim = xlim, ylim = ylim, area_iso = addIsoAreas, 
-            n_perfil = n_perfil)
+  # if (save) {
+  #   png(filename = file.path(outFolder, outFile), width = widthFig, 
+  #       height = heightFig, units = "px", res = 130)
+  # }
+  # par(mar = c(4, 4, 1, 1), oma = c(0, 0, 0, 0))
+  # mapa_peru(xlim = xlim, ylim = ylim, area_iso = addIsoAreas, 
+  #           n_perfil = n_perfil)
   rbPal = PalCols
   baseDat = baseDat[which(baseDat[, "NOMBRE_COMERCIAL"] == 
                             spType), ]
