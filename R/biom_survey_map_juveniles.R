@@ -33,7 +33,7 @@ biom_survey_map_juveniles = function(baseDat, outFolder = ".", outFile = "Lances
     
     points(x = temp_biom[, "LONGITUD_INICIAL"],
            y = temp_biom[, "LATITUD_INICIAL"],
-           pch = Pch, col = PalCols[porc2], cex = CexPoint)
+           pch = Pch, col = 1, bg = PalCols[porc2], cex = CexPoint)
   }
   
   if(Legend){
