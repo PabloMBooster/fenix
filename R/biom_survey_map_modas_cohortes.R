@@ -104,6 +104,6 @@ biom_survey_map_modas_cohortes <- function (baseDat, outFolder = ".", outFile = 
   }
   if (save) {
     dev.off()
-    dev.off()
+
   }
 }
