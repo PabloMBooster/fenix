@@ -47,7 +47,7 @@ estima_dc2(x)
 longitude <- c(-77.1,-78.1,-77.3)
 latitude <- c(-14,-13.4,-15.1)
 
-dc <- estima_dc2(x = longitude, y = latitude)
+dc <- estima_dc2(lon = longitude, lat = latitude, polygon = PERU_SP)
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
