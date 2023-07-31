@@ -120,7 +120,72 @@ points(points_fishing0$lon, points_fishing0$lat, cex = 0.8, col = 4, pch = 16)
 
 # dibujar algunas areas iso
 mapa_peru(area_iso = T, name_area_iso = c(12180, 13180))
+
+# dibujar areas iso coloreadas + perfiles
+
+points_fishing$dc   = estima_dc(x = points_fishing$lon,y = points_fishing$lat)
+area                = area_isoparalitoral(dist_costa = points_fishing$dc ,latitude = points_fishing$lat)
+points_fishing$area = area$area
+points_fishing      = points_fishing[!is.na(points_fishing$area),]
+scale = 0:length(sort(unique(points_fishing$week)))*-3
+
+maxAll = NULL
+for(j in sort(unique(points_fishing$week))){
+  
+  dataj        = points_fishing[points_fishing$week == j,]
+  tmp_isoareas = isopara$area %in% dataj$area
+  tmp_isopara  = isopara[tmp_isoareas, ]
+  idx_areas    = unique(tmp_isopara$area)
+  
+  maxVar = NULL
+  for(i in seq_along(idx_areas)){
+    temp = subset(x = tmp_isopara, subset = tmp_isopara$area == idx_areas[i])
+    temp_data = subset(x = dataj, subset = dataj$area == idx_areas[i])
+    colorVariable = tapply(temp_data$lon, temp_data$area, length) ## aqui modificar las variable y la funcion para colorear las areas
+    maxVar = c(max(colorVariable), maxVar)
+  }
+  maxAll = c(max(maxVar), maxAll)
 }
+
+max_valor   = max(maxAll)
+scale.color = designer.colors(max_valor, c('#00007F','blue',
+                                           '#007FFF','cyan',
+                                           '#7FFF7F','yellow',
+                                           '#FF7F00','red','#7F0000'))
+
+n_perfil = length(sort(unique(points_fishing$week)))
+mapa_peru(n_perfil = n_perfil)
+
+for(j in sort(unique(points_fishing$week))){
+  
+  dataj        = points_fishing[points_fishing$week == j,]
+  tmp_isoareas = isopara$area %in% dataj$area
+  tmp_isopara  = isopara[tmp_isoareas, ]
+  idx_areas    = unique(tmp_isopara$area)
+  
+  maxVariable = NULL
+  for(i in seq_along(idx_areas)){
+    
+    temp = subset(x = tmp_isopara, subset = tmp_isopara$area == idx_areas[i])
+    temp_data = subset(x = dataj, subset = dataj$area == idx_areas[i])
+    
+    colorVariable = as.numeric(tapply(temp_data$lon, temp_data$area, length))
+
+    polygon(x = c(temp$lon[1]+scale[j], temp$lon[2:nrow(temp)]+scale[j], temp$lon[1]+scale[j]), 
+            y = c(temp$lat[1], temp$lat[2:nrow(temp)], temp$lat[1]), 
+            border = scale.color[colorVariable], col = scale.color[colorVariable])
+    maxVariable = c(max(colorVariable), maxVariable)
+  }
+  require(geoR)
+
+  legend.krige(c(scale[length(scale)]-81,scale[length(scale)]-80.5),c(-20,-13),
+               1:max_valor, vertical=T, col=scale.color, offset.leg = 1.5)
+}
+
+}
+
+
+
 
 
 % Add one or more standard keywords, see file 'KEYWORDS' in the
