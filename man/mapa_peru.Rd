@@ -180,8 +180,7 @@ for(j in sort(unique(points_fishing$week))){
 
   legend.krige(c(scale[length(scale)]-81,scale[length(scale)]-80.5),c(-20,-13),
                1:max_valor, vertical=T, col=scale.color, offset.leg = 1.5)
-}
-
+  }
 }
 
 

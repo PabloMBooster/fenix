@@ -3,9 +3,9 @@ Type: Package
 Title: fenix
 Version: 0.1.2
 Date: 2018-11-08
-Author: Pablo Martin-Marin Abanto <pablo.marin.abanto@gmail.com>
-Maintainer: Pablo Martin-Marin Abanto <pablo.marin.abanto@gmail.com>
+Author: Pablo Martin-Marin Abanto <boosterpablo@gmail.com>
+Maintainer: Pablo Martin Marin Abanto <boosterpablo@gmail.com>
 Description: Tools for process and analyze fishery  data
-Depends: plotrix, mixtools, mixdist, nortest, akima, fields, maps, mapdata, nortest
+Depends: plotrix, mixtools, mixdist, nortest, akima, fields, maps, mapdata, nortest, mapplots, geoR, dplyr,sf
 License: GPL-2
 LazyData: true
