@@ -2,10 +2,10 @@
 biom_survey_dist_tallaslance = function(data = data, output = output, file = "muestreos", type = "pdf", cex = 0.7){
   
   if(type == "pdf"){
-    pdf(file = paste0(outout,"/", file,".pdf"), pointsize = 8)
+    pdf(file = paste0(output,"/", file,".pdf"), pointsize = 8)
   }
   if(type == "png"){
-    png(file = paste0(outout,"/", file,".png"),  width = 850, 
+    png(file = paste0(output,"/", file,".png"),  width = 850, 
         height = 820, units = "px", res = 140)
   }
   par(mfrow = c(7,6), mar = c(0,0,0,0), oma = c(4,4,1,1))
