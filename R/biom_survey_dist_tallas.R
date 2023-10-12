@@ -32,9 +32,12 @@ biom_survey_dist_tallas <- function(Base_datos, a = 0.0038, b = 3.215, save = T,
   juvLim <- 12
   juvCol <- 2
   
+  abu = omitCeros(freq_survey$N)
+  bio = omitCeros(freq_survey$W)
+  
   par(mar = c(4.1, 4.1, 1.1, 1.1), mfrow = c(2, 1), oma = rep(2, 
                                                               4))
-  plot(x = freq_survey$Tallas, y = freq_survey$N, type = "l", lwd = 2, col = "red", 
+  plot(x = freq_survey$Tallas, y = abu, type = "l", lwd = 2, col = "red", 
        axes = F, cex.lab = 1.5, ylab = "Frecuencia relativa", xlab = "Longitud total (cm)", 
        ylim = c(0, 2 * (max(freq_survey$N)%/%2 + as.logical(max(freq_survey$N)%%2))))
   axis(1, tallas_anc, labels = NA, cex.axis = 1.2)
@@ -50,7 +53,7 @@ biom_survey_dist_tallas <- function(Base_datos, a = 0.0038, b = 3.215, save = T,
   mtext("Abundancia", side = 3, line = -2, adj = 0.98, cex = 1.2, 
         font = 2)
   box()
-  plot(x = freq_survey$Tallas, y = freq_survey$W, type = "l", lwd = 2, col = "red", 
+  plot(x = freq_survey$Tallas, y = bio, type = "l", lwd = 2, col = "red", 
        axes = F, cex.lab = 1.5, ylab = "Frecuencia relativa", xlab = "Biomasa", 
        ylim = c(0, 2 * (max(freq_survey$W)%/%2 + as.logical(max(freq_survey$W)%%2))))
   axis(1, tallas_anc, labels = NA, cex.axis = 1.2)
@@ -66,7 +69,7 @@ biom_survey_dist_tallas <- function(Base_datos, a = 0.0038, b = 3.215, save = T,
         font = 2)
   box()
   if (isTRUE(save)) {
-    dev.copy(png, filename = paste0(output, "/",file,".png"), width = 2000, height = 1500, 
+    dev.copy(png, filename = paste0(output, "/",file,".png"), width = 2200, height = 1500, 
              res = 200)
     dev.off()
   }
