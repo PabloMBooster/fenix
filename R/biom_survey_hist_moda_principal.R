@@ -17,7 +17,7 @@ biom_survey_hist_moda_principal = function(Base_datos = Base_datos, spType = spT
                                    Lmax = 20, dL = 0.5, umbral = 5)
     
     tmp2 = data.frame(lon = temp_biom[1, "LONGITUD_INICIAL"], lat = temp_biom[1, "LATITUD_INICIAL"], lance =   temp_biom[1, "REO_NNUMLAN"],
-                      midlen = getModa[Moda])
+                      midlen = getModa[Moda], midlen2 = getModa[Moda+1], midlen3 = getModa[Moda+2])
     # midlen = estimarModaAnch(len = temp_biom[, "LONGITUD_ESPECIE"], freq = temp_biom[, "FREC_SIMPLE"],
     #                          tol = 0, nmodes = 4, maxFreq = 0)
     # tmp2 = data.frame(lon = temp_biom[1, "LONGITUD_INICIAL"], lat = temp_biom[1, "LATITUD_INICIAL"], lance =   temp_biom[1, "REO_NNUMLAN"],
@@ -25,20 +25,39 @@ biom_survey_hist_moda_principal = function(Base_datos = Base_datos, spType = spT
     tmpout = rbind(tmpout, tmp2)
   }
   tmpout <- tmpout[!is.na(tmpout$midlen),]
-  par(mar = c(4,4,0,0), oma = c(1,1,1,1))
-  xtallas = as.numeric(names(table(tmpout$midlen)))
-  yfreq   = as.numeric(table(tmpout$midlen))
-  plot(xtallas, yfreq, xlim = c(2,20), xlab = "Longitud total (cm)", ylab = "Frecuencia modas principales", col = "white")
-  for(i in seq(xtallas)){
-    segments(x0 = xtallas[i],y0 = 0, x1 = xtallas[i],y1 = yfreq[i], lwd = 8, col = 4)
-  }
-  axis(1, 2:20)
-  axis(2)
-  box()
   
+  tabla_modas1 = table(tmpout$midlen)
+  tabla_modas2 = table(c(tmpout$midlen2,tmpout$midlen3))
+  #tabla_modas3 = table(tmpout$midlen3)
+  
+  tallas = seq(2,20,by=0.5)
+  matrix_modas = matrix(0, nrow  = 2, ncol = length(tallas))
+  
+  
+  
+  matrix_modas[1, which(tallas %in% as.numeric(names(tabla_modas1)))] = as.numeric(tabla_modas1)
+  matrix_modas[2, which(tallas %in% as.numeric(names(tabla_modas2)))] = as.numeric(tabla_modas2)
+  #matrix_modas[3, which(tallas %in% as.numeric(names(tabla_modas3)))] = as.numeric(tabla_modas3)
+  
+  
+  par(mar = c(4,4,0,0), oma = c(1,1,1,1))
+  a = barplot(matrix_modas[1,], col = 1, ylab = "Frecuencia de modas", xlab = "Tallas (cm)", ylim = c(0, max(matrix_modas)+1))
+  axis(1, at = a[seq(1,length(a), by = 2)], labels = seq(2,20, by = 1))
+  legend("toprigh", legend = c("Moda pincipal"), col = 1, pch = 15, bty = "n")
+  box()
   if (isTRUE(save)) {
     dev.copy(png, filename = paste0(output, "/",file,".png"), width = 2000, height = 1000, 
              res = 200)
-    dev.off()
+    
+    par(mar = c(4,4,0,0), oma = c(1,1,1,1))
+    a = barplot(matrix_modas, col = c(1,4), ylab = "Frecuencia de modas", xlab = "Tallas (cm)", ylim = c(0, max(matrix_modas)+1))
+    axis(1, at = a[seq(1,length(a), by = 2)], labels = seq(2,20, by = 1))
+    legend("toprigh", legend = c("Moda pincipal", "Modas secundarias"), col = c(1,4), pch = 15, bty = "n")
+    box()
+    if (isTRUE(save)) {
+      dev.copy(png, filename = paste0(output, "/",file,"_all.png"), width = 2000, height = 1000, 
+               res = 200)
+      dev.off()
+    }
   }
-}
+  
