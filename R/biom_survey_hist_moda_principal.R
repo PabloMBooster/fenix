@@ -33,31 +33,29 @@ biom_survey_hist_moda_principal = function(Base_datos = Base_datos, spType = spT
   tallas = seq(2,20,by=0.5)
   matrix_modas = matrix(0, nrow  = 2, ncol = length(tallas))
   
-  
-  
   matrix_modas[1, which(tallas %in% as.numeric(names(tabla_modas1)))] = as.numeric(tabla_modas1)
   matrix_modas[2, which(tallas %in% as.numeric(names(tabla_modas2)))] = as.numeric(tabla_modas2)
   #matrix_modas[3, which(tallas %in% as.numeric(names(tabla_modas3)))] = as.numeric(tabla_modas3)
   
-  
   par(mar = c(4,4,0,0), oma = c(1,1,1,1))
-  a = barplot(matrix_modas[1,], col = 1, ylab = "Frecuencia de modas", xlab = "Tallas (cm)", ylim = c(0, max(matrix_modas)+1))
+  a = barplot(matrix_modas[1,], col = 1, ylab = "Frecuencia modas", xlab = "Tallas (cm)", ylim = c(0, max(matrix_modas)+1))
   axis(1, at = a[seq(1,length(a), by = 2)], labels = seq(2,20, by = 1))
-  legend("toprigh", legend = c("Moda pincipal"), col = 1, pch = 15, bty = "n")
+  legend(32, max(matrix_modas), legend = c("Moda pincipal", "Modas secundarias"), col = c(1,4), pch = 15, bty = "n")
   box()
   if (isTRUE(save)) {
     dev.copy(png, filename = paste0(output, "/",file,".png"), width = 2000, height = 1000, 
              res = 200)
-    
+    dev.off()
+  } 
     par(mar = c(4,4,0,0), oma = c(1,1,1,1))
-    a = barplot(matrix_modas, col = c(1,4), ylab = "Frecuencia de modas", xlab = "Tallas (cm)", ylim = c(0, max(matrix_modas)+1))
+    a = barplot(matrix_modas, col = c(1,4), ylab = "Frecuencia modas", xlab = "Tallas (cm)", ylim = c(0, max(matrix_modas)+1))
     axis(1, at = a[seq(1,length(a), by = 2)], labels = seq(2,20, by = 1))
-    legend("toprigh", legend = c("Moda pincipal", "Modas secundarias"), col = c(1,4), pch = 15, bty = "n")
+    legend(32, max(matrix_modas), legend = c("Moda pincipal", "Modas secundarias"), col = c(1,4), pch = 15, bty = "n")
     box()
     if (isTRUE(save)) {
       dev.copy(png, filename = paste0(output, "/",file,"_all.png"), width = 2000, height = 1000, 
                res = 200)
       dev.off()
     }
-  }
+}
   
