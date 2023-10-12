@@ -6,9 +6,9 @@ omitCeros = function (vect, nzeros = 1)
                                             length(data))) 
     return(data)
   if (nzeros > 0) {
-    iniIndex <- apply(matrix(apply(data, 1, is.na)), 2, .VectorInVector, 
+    iniIndex <- apply(matrix(apply(data, 1, is.na)), 2, VectorInVector, 
                       pattern = c(TRUE, FALSE))
-    finIndex <- apply(matrix(apply(data, 1, is.na)), 2, .VectorInVector, 
+    finIndex <- apply(matrix(apply(data, 1, is.na)), 2, VectorInVector, 
                       pattern = c(FALSE, TRUE))
     index.fill <- which(!is.na(data))
     index <- NULL
