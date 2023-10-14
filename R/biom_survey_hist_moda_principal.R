@@ -1,4 +1,4 @@
-biom_survey_hist_moda_principal = function(Base_datos = Base_datos, spType = spType, save = T, output = dir_output, file = "histogrma_modas_biom"){
+biom_survey_hist_moda_principal = function(Base_datos = Base_datos, spType = spType, save = T, output = dir_output, file = "histogrma_modas_biom", Ylim = 2){
   
   Base_datos          = Base_datos[which(Base_datos[, "NOMBRE_COMERCIAL"] == spType), ]
   Base_datos$indLance = paste0(Base_datos[, "EMBARCACION"], "-",Base_datos[, "REO_NNUMLAN"])
@@ -40,7 +40,7 @@ biom_survey_hist_moda_principal = function(Base_datos = Base_datos, spType = spT
   #matrix_modas[3, which(tallas %in% as.numeric(names(tabla_modas3)))] = as.numeric(tabla_modas3)
   
   par(mar = c(4,4,0,0), oma = c(1,1,1,1))
-  a = barplot(matrix_modas[1,], col = 1, ylab = "Frecuencia modas", xlab = "Tallas (cm)", ylim = c(0, max(matrix_modas)+1))
+  a = barplot(matrix_modas[1,], col = 1, ylab = "Frecuencia modas", xlab = "Tallas (cm)", ylim = c(0, max(matrix_modas)+Ylim))
   axis(1, at = a[seq(1,length(a), by = 2)], labels = seq(2,20, by = 1))
   legend(32, max(matrix_modas), legend = c("Moda pincipal", "Modas secundarias"), col = c(1,4), pch = 15, bty = "n")
   box()
@@ -50,7 +50,7 @@ biom_survey_hist_moda_principal = function(Base_datos = Base_datos, spType = spT
     dev.off()
   }
   par(mar = c(4,4,0,0), oma = c(1,1,1,1))
-  a = barplot(matrix_modas, col = c(1,4), ylab = "Frecuencia modas", xlab = "Tallas (cm)", ylim = c(0, max(matrix_modas)+1))
+  a = barplot(matrix_modas, col = c(1,4), ylab = "Frecuencia modas", xlab = "Tallas (cm)", ylim = c(0, max(matrix_modas)+Ylim))
   axis(1, at = a[seq(1,length(a), by = 2)], labels = seq(2,20, by = 1))
   legend(32, max(matrix_modas), legend = c("Moda pincipal", "Modas secundarias"), col = c(1,4), pch = 15, bty = "n")
   box()

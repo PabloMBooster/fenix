@@ -10,8 +10,9 @@ biom_survey_dist_tallaslance = function(data = data, output = output, file = "mu
   }
   par(mfrow = c(7,6), mar = c(0,0,0,0), oma = c(4,4,1,1))
   
-  for(i in seq_along(sort(unique(Base_datos$LATITUD_INICIAL), decreasing = T))){
-    BaseByDate = Base_datos[Base_datos$LATITUD_INICIAL %in% sort(unique(Base_datos$LATITUD_INICIAL), decreasing = T)[i], ]
+  nobs = length(seq_along(sort(unique(data$LATITUD_INICIAL), decreasing = T)))
+  for(i in seq_along(sort(unique(data$LATITUD_INICIAL), decreasing = T))){
+    BaseByDate = data[data$LATITUD_INICIAL %in% sort(unique(data$LATITUD_INICIAL), decreasing = T)[i], ]
     
     BaseByDate$TOTAL <- sum(BaseByDate$FREC_SIMPLE)
     BaseByDate <- BaseByDate[order(BaseByDate$LONGITUD_ESPECIE),]
@@ -27,7 +28,7 @@ biom_survey_dist_tallaslance = function(data = data, output = output, file = "mu
     
     abline(h = 0, lwd = 2.2, col = "gray")
     
-    imax <- max(seq_along(sort(unique(Base_datos$REO_DFECINE))))
+    imax <- max(seq_along(sort(unique(data$REO_NNUMLAN))))
     xx <- c((6*7-5):(6*7),(6*7*2-5):(6*7*2),(6*7*3-5):(6*7*3),(imax-5):imax)
     
     if(i%in%xx){
@@ -35,10 +36,36 @@ biom_survey_dist_tallaslance = function(data = data, output = output, file = "mu
       axis(1, at = seq(4,20,4), padj = -0.5, cex.axis = 0.70)
     }
     
+    
     if(i%%6==1){
       axis(2, las = 2, cex.axis = 0.70)
     }
     abline(v = 12, lty = 2, col = 4)
+    
+    if(i == nobs){
+      axis(1, at = seq(4,20,4), labels = NA)
+      axis(1, at = seq(4,20,4), padj = -0.5, cex.axis = 0.70)
+    }
+    if(i == nobs-1){
+      axis(1, at = seq(4,20,4), labels = NA)
+      axis(1, at = seq(4,20,4), padj = -0.5, cex.axis = 0.70)
+    }
+    if(i == nobs-2){
+      axis(1, at = seq(4,20,4), labels = NA)
+      axis(1, at = seq(4,20,4), padj = -0.5, cex.axis = 0.70)
+    }
+    if(i == nobs-3){
+      axis(1, at = seq(4,20,4), labels = NA)
+      axis(1, at = seq(4,20,4), padj = -0.5, cex.axis = 0.70)
+    }
+    if(i == nobs-4){
+      axis(1, at = seq(4,20,4), labels = NA)
+      axis(1, at = seq(4,20,4), padj = -0.5, cex.axis = 0.70)
+    }
+    if(i == nobs-5){
+      axis(1, at = seq(4,20,4), labels = NA)
+      axis(1, at = seq(4,20,4), padj = -0.5, cex.axis = 0.70)
+    }
     
     lat <- floor(BaseByDate$LATITUD_INICIAL[1]*-1)
     if(!is.na(lat)){
