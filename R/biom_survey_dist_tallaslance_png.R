@@ -9,7 +9,7 @@ biom_survey_dist_tallaslance_png = function(data = data, output = output, file =
   if(nbases < 1){
     png(file = paste0(output,"/", file,"1.png"),  width = 850, 
         height = 820, units = "px", res = 140)
-    plot_tallas_lance(data = data, cex = cex)
+    plot_biom_survey_dist_tallaslance(data = data, cex = cex)
     dev.off()
   }
   if(nbases > 1 & nbases < 2){
@@ -18,12 +18,12 @@ biom_survey_dist_tallaslance_png = function(data = data, output = output, file =
     
     png(file = paste0(output,"/", file,"1.png"),  width = 850, 
         height = 820, units = "px", res = 140)
-    plot_tallas_lance(data = data1, cex = cex)
+    plot_biom_survey_dist_tallaslance(data = data1, cex = cex)
     dev.off()
     
     png(file = paste0(output,"/", file,"2.png"),  width = 850, 
         height = 820, units = "px", res = 140)
-    plot_tallas_lance(data = data2, cex = cex)
+    plot_biom_survey_dist_tallaslance(data = data2, cex = cex)
     dev.off()
   }
   if(nbases > 2 & nbases < 3){
@@ -33,17 +33,17 @@ biom_survey_dist_tallaslance_png = function(data = data, output = output, file =
     
     png(file = paste0(output,"/", file,"1.png"),  width = 850, 
         height = 820, units = "px", res = 140)
-    plot_tallas_lance(data = data1, cex = cex)
+    plot_biom_survey_dist_tallaslance(data = data1, cex = cex)
     dev.off()
     
     png(file = paste0(output,"/", file,"2.png"),  width = 850, 
         height = 820, units = "px", res = 140)
-    plot_tallas_lance(data = data2, cex = cex)
+    plot_biom_survey_dist_tallaslance(data = data2, cex = cex)
     dev.off()
     
     png(file = paste0(output,"/", file,"3.png"),  width = 850, 
         height = 820, units = "px", res = 140)
-    plot_tallas_lance(data = data3, cex = cex)
+    plot_biom_survey_dist_tallaslance(data = data3, cex = cex)
     dev.off()
   }
   if(nbases > 3 & nbases < 4){
@@ -55,22 +55,22 @@ biom_survey_dist_tallaslance_png = function(data = data, output = output, file =
     
     png(file = paste0(output,"/", file,"1.png"),  width = 850, 
         height = 820, units = "px", res = 140)
-    plot_tallas_lance(data = data1, cex = cex)
+    plot_biom_survey_dist_tallaslance(data = data1, cex = cex)
     dev.off()
     
     png(file = paste0(output,"/", file,"2.png"),  width = 850, 
         height = 820, units = "px", res = 140)
-    plot_tallas_lance(data = data2, cex = cex)
+    plot_biom_survey_dist_tallaslance(data = data2, cex = cex)
     dev.off()
     
     png(file = paste0(output,"/", file,"3.png"),  width = 850, 
         height = 820, units = "px", res = 140)
-    plot_tallas_lance(data = data3, cex = cex)
+    plot_biom_survey_dist_tallaslance(data = data3, cex = cex)
     dev.off()
     
     png(file = paste0(output,"/", file,"4.png"),  width = 850, 
         height = 820, units = "px", res = 140)
-    plot_tallas_lance(data = data4, cex = cex)
+    plot_biom_survey_dist_tallaslance(data = data4, cex = cex)
     dev.off()
   }
   
